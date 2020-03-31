@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "firebase-demo": {
+    "code-clone": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/firebase-demo",
+            "outputPath": "dist/code-clone",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "firebase-demo:build"
+            "browserTarget": "code-clone:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "firebase-demo:build:production"
+              "browserTarget": "code-clone:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "firebase-demo:build"
+            "browserTarget": "code-clone:build"
           }
         },
         "test": {
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "firebase-demo:serve"
+            "devServerTarget": "code-clone:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "firebase-demo:serve:production"
+              "devServerTarget": "code-clone:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "firebase-demo"
+  "defaultProject": "code-clone"
 }

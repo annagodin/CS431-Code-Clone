@@ -10,7 +10,7 @@ export class AppComponent {
 
   courses: any[];
 
-  title = 'firebase-demo';
+  title = 'code-clone';
 
   constructor(db: AngularFireDatabase) {
 
