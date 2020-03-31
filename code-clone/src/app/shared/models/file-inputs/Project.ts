@@ -1,4 +1,7 @@
-class Project implements CodeReference{
+import {CodeReference, InputType} from "./CodeReference";
+import {Snippet} from "./Snippet";
+
+export class Project implements CodeReference{
   files: Snippet[];
   type: InputType;
 

@@ -1,4 +1,8 @@
-class CloneResults{
+import {CloneData} from "./CloneData";
+import {CodeReference} from "./file-inputs/CodeReference";
+import {CodeInput} from "./file-inputs/CodeInput";
+
+export class CloneResults{
   results: CloneData[];
   referenceCode: CodeReference;
   inputCode: CodeInput;

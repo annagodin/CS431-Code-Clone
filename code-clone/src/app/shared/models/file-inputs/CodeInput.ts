@@ -1,3 +1,3 @@
-interface CodeInput {
+export interface CodeInput {
 
 }

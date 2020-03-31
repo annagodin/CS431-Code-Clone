@@ -317,9 +317,12 @@
 
 <div class="content" role="main">
 
-  <ul>
-    <li *ngFor="let course of courses">
-      {{course}}
+  <button (click)="addRandomDataPoint()">click to add random data</button>
+
+    <ul>
+    <li *ngFor="let data of cloneFeedbackList">
+      {{"Rating: " + data.getRating() + ",\tType: " + data.getCloneType() + ",\tText: " + data.getTextFeedback()}}
+      <button (click)="delete(data)">delete this</button>
     </li>
   </ul>
 

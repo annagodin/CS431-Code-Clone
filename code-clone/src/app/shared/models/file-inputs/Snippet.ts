@@ -1,4 +1,8 @@
-class Snippet implements CodeReference, CodeInput{
+import {CodeReference} from "./CodeReference";
+import {CodeInput} from "./CodeInput";
+import {InputType} from "./CodeReference";
+
+export class Snippet implements CodeReference, CodeInput{
   fileContents: String;
   ASTStructure: any;
   type: InputType;

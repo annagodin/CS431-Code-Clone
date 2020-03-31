@@ -1,4 +1,4 @@
-class CloneData{
+export class CloneData{
   private type: Number;
   private referenceLocation: [Number,Number];
   private inputLocation: [Number,Number];

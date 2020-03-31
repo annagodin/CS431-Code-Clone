@@ -1,8 +1,8 @@
-enum InputType {
+export enum InputType {
   PROJECT,
   SNIPPET
 }
 
-interface CodeReference {
+export interface CodeReference {
   type: InputType
 }

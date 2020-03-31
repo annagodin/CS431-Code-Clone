@@ -1,14 +1,29 @@
-class CloneFeedback{
-  private rank: Number;
-  private textFeedback: String;
+import { map } from 'rxjs/operators';
 
-  constructor(rank: Number) {
-    this.rank = rank;
+
+export class CloneFeedback{
+  private rating: Number;
+  private cloneType: Number;
+  private textFeedback?: String;
+  id: string;
+
+  constructor(rating: Number, cloneType: Number, text: String) {
+    this.textFeedback = text;
+    this.rating = rating;
+    this.cloneType=cloneType;
+    // let dt= new Date();
+    // let ts = dt.getMonth() + "" + dt.getDay() + "" +dt.getFullYear() +"" + dt.getHours()+"" +dt.getMinutes()+"" +dt.getSeconds()+"" +dt.getMilliseconds()
+    // this.id=ts;
   }
 
 
-  getRank(): Number {
-    return this.rank;
+
+  getCloneType(): Number{
+    return this.cloneType;
+  }
+
+  getRating(): Number {
+    return this.rating;
   }
 
   getTextFeedback(): String {
