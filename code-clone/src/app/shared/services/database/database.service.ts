@@ -34,4 +34,9 @@ export class DatabaseService {
     itemsRef.remove(cloneFeedback.id);
   }
 
+  deleteEverything() {
+    const itemsRef = this.db.list('data');
+    itemsRef.remove();
+  }
+
 }

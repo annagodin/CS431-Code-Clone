@@ -60,5 +60,9 @@ export class AppComponent implements OnInit {
     this.databaseService.deleteDataPoint(cloneFeedback);
   }
 
+  deleteAll(){
+    this.databaseService.deleteEverything();
+  }
+
 
 }
