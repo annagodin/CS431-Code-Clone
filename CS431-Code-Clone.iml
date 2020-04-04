@@ -3,8 +3,8 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/firebase-demo/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/firebase-demo/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/code-clone/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/code-clone/tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

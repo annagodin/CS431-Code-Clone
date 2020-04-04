@@ -2,6 +2,8 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+
+//https://medium.com/@klogic/encrypt-env-file-in-your-repo-with-blackbox-by-stackexchange-f4cca3d62acf
 import {api_key} from "../app/key";
 
 export const environment = {
