@@ -11,12 +11,7 @@ export class CloneFeedback{
     this.textFeedback = text;
     this.rating = rating;
     this.cloneType=cloneType;
-    // let dt= new Date();
-    // let ts = dt.getMonth() + "" + dt.getDay() + "" +dt.getFullYear() +"" + dt.getHours()+"" +dt.getMinutes()+"" +dt.getSeconds()+"" +dt.getMilliseconds()
-    // this.id=ts;
   }
-
-
 
   getCloneType(): Number{
     return this.cloneType;
