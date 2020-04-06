@@ -1,0 +1,10 @@
+/* Set a background image by replacing the URL below */
+body {
+  /*background: url('https://www.wpfaster.org/wp-content/uploads/2015/08/wpfaster_code.jpg') no-repeat center center fixed;*/
+  background: url('../assets/code_image_1.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
