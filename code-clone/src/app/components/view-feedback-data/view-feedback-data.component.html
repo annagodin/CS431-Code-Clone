@@ -1,0 +1,27 @@
+<h2>View Feedback Data</h2>
+<hr class="my-4">
+
+<button (click)="addRandomDataPoint()" class="btn btn-primary">Add random data</button>
+&nbsp;
+<button (click)="deleteAll()" class="btn btn-danger">Delete Everything</button>
+
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Clone Type</th>
+    <th scope="col">Rating</th>
+    <th scope="col">Text Feedback</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of cloneFeedbackList">
+    <td>{{data.getCloneType()}}</td>
+    <td>{{data.getRating()}}</td>
+    <td>{{data.getTextFeedback()}}</td>
+    <td><button (click)="delete(data)" class="btn btn-sm btn-outline-primary">delete this</button></td>
+  </tr>
+  </tbody>
+</table>

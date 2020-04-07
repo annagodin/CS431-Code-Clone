@@ -2,10 +2,10 @@ import { map } from 'rxjs/operators';
 
 
 export class CloneFeedback{
-  private rating: Number;
-  private cloneType: Number;
-  private textFeedback?: String;
-  id: string;
+   rating: Number;
+   cloneType: Number;
+   textFeedback?: String;
+   id: string;
 
   constructor(rating: Number, cloneType: Number, text: String) {
     this.textFeedback = text;
