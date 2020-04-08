@@ -20,6 +20,10 @@ import { CodeAnalysisComponent } from './components/code-analysis/code-analysis.
 import {TabsModule} from "ngx-bootstrap";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
+import {ScrollingModule} from "@angular/cdk/scrolling";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
+// import { WavesModule, TableModule } from 'angular-bootstrap-md';
 
 
 @NgModule({
@@ -45,7 +49,10 @@ import {MatIconModule} from "@angular/material/icon";
     CarouselModule.forRoot(),
     TabsModule.forRoot(),
     MatButtonToggleModule,
-    MatIconModule
+    MatIconModule,
+    ScrollingModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

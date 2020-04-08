@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+
+.example-container {
+  max-height: 550px;
+  overflow: auto;
+}
+
+.mat-paginator-sticky {
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+}

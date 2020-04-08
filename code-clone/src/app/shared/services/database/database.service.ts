@@ -19,10 +19,14 @@ export class DatabaseService {
   }
 
   createDataPoint(cloneFeedback: CloneFeedback): CloneFeedback{
+    let json = JSON.parse( JSON.stringify(cloneFeedback));
+    console.log("JSONNNNN");
+    console.log(json);
+    let text;
     const itemsRef = this.db.list('data');
-    const key = itemsRef.push({ cloneType: cloneFeedback.getCloneType(),
-                    rating: cloneFeedback.getRating(),
-                    textFeedback: cloneFeedback.getTextFeedback()}).key;
+    const key = itemsRef.push({ cloneType: cloneFeedback.cloneType,
+                    rating: cloneFeedback.rating,
+                    textFeedback: cloneFeedback.textFeedback}).key;
     cloneFeedback.id=key;
     this.updateDataPoint(cloneFeedback);
     return cloneFeedback;
@@ -33,9 +37,9 @@ export class DatabaseService {
     itemsRef.update(cloneFeedback.id, { id: cloneFeedback.id});
   }
 
-  deleteDataPoint(cloneFeedback: CloneFeedback){
+  deleteDataPoint(id){
     const itemsRef = this.db.list('data');
-    itemsRef.remove(cloneFeedback.id);
+    itemsRef.remove(id);
   }
 
   deleteEverything() {
