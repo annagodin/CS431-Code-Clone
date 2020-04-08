@@ -23,6 +23,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
 // import { WavesModule, TableModule } from 'angular-bootstrap-md';
 
 
@@ -52,7 +54,9 @@ import {MatTableModule} from "@angular/material/table";
     MatIconModule,
     ScrollingModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

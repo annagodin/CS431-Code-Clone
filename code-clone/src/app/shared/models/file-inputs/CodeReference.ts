@@ -1,6 +1,6 @@
 export enum InputType {
-  PROJECT,
-  SNIPPET
+  PROJECT= "Project",
+  SNIPPET = "Snippet"
 }
 
 export interface CodeReference {

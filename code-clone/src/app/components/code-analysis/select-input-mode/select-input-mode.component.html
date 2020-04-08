@@ -1,5 +1,19 @@
-<p>select-input-mode works!!!!</p>
+<div style="height: 10px"></div>
+
+
+<mat-form-field>
+  <mat-label>Reference input type</mat-label>
+  <mat-select [(value)]="referenceCodeType">
+    <mat-option value="{{inputType.SNIPPET}}">Snippet</mat-option>
+    <mat-option value="{{inputType.PROJECT}}">Project</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<!--<h4>inputmode: {{referenceCodeType}}</h4>-->
+
+
+<div style="height: 10px"></div>
 
 <button class="btn btn-dark">Cancel</button>
 &nbsp;
-<button class="btn btn-dark">Upload Inputs</button>
+<button class="btn btn-dark" (click)="goToUploadInputs()">Upload Inputs</button>
