@@ -1,6 +1,5 @@
-<h2>Code Analysis</h2>
-
-
+<h1>Code Analysis</h1>
+<hr class="my-4">
 
 <!--<button (click)="togglePage(componentOrder.SELECT_INPUT_MODE)" class="btn btn-sm btn-primary">SELECT_INPUT_MODE</button>-->
 <!--&nbsp;-->
@@ -14,21 +13,21 @@
 
 <mat-button-toggle-group [value]="currentView" #group="matButtonToggleGroup" (change)="onValChange(group.value)">
   <mat-button-toggle  value="SELECT_INPUT_MODE" (click)="togglePage(componentOrder.SELECT_INPUT_MODE, 'SELECT_INPUT_MODE' )"  aria-label="Text align left">
-    SELECT_INPUT_MODE
+    SELECT INPUT MODE
   </mat-button-toggle>
   <mat-button-toggle disabled="{{!pageAvailability[componentOrder.UPLOAD_INPUTS]}}" value="UPLOAD_INPUTS" (click)="togglePage(componentOrder.UPLOAD_INPUTS, 'UPLOAD_INPUTS')"   aria-label="Text align center">
-    UPLOAD_INPUTS
+    UPLOAD INPUTS
   </mat-button-toggle>
   <mat-button-toggle disabled="{{!pageAvailability[componentOrder.CLONE_RESULTS]}}" value="CLONE_RESULTS"  (click)="togglePage(componentOrder.CLONE_RESULTS, 'CLONE_RESULTS')"  aria-label="Text align right">
-    CLONE_RESULTS
+    CLONE RESULTS
   </mat-button-toggle>
-  <mat-button-toggle disabled="{{!pageAvailability[componentOrder.INPUT_FEEDBACK_DATA]}}" value="INPUT_FEEDBACK_DATA"  (click)="togglePage(componentOrder.INPUT_FEEDBACK_DATA, 'INPUT_FEEDBACK_DATA')"  aria-label="Text align justify">
-    INPUT_FEEDBACK_DATA
+  <mat-button-toggle disabled="{{!pageAvailability[componentOrder.INPUT_FEEDBACK_DATA]}}" [hidden]="!giveFeedback" value="INPUT_FEEDBACK_DATA"  (click)="togglePage(componentOrder.INPUT_FEEDBACK_DATA, 'INPUT_FEEDBACK_DATA')"  aria-label="Text align justify">
+    INPUT FEEDBACK DATA
   </mat-button-toggle>
 </mat-button-toggle-group>
 
 
 <app-select-input-mode (inputTypeEmitter)="getInputType($event)" [hidden]="!pageView[componentOrder.SELECT_INPUT_MODE]"></app-select-input-mode>
-<app-upload-inputs [inputType]="inputType" [hidden]="!pageView[componentOrder.UPLOAD_INPUTS]"></app-upload-inputs>
+<app-upload-inputs [refInputType]="inputType" [hidden]="!pageView[componentOrder.UPLOAD_INPUTS]"></app-upload-inputs>
 <app-clone-results  [hidden]="!pageView[componentOrder.CLONE_RESULTS]"></app-clone-results>
 <app-input-feedback-data [hidden]="!pageView[componentOrder.INPUT_FEEDBACK_DATA]"></app-input-feedback-data>

@@ -12,6 +12,7 @@ export class CodeAnalysisComponent implements OnInit {
   pageAvailability = new Array<boolean>(Object.keys(ComponentOrder).length/2);
   currentView: string;
   inputType: InputType;
+  giveFeedback = false;
 
   constructor() {
   }

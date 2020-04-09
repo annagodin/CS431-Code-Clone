@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {InputType} from "../../../shared/models/file-inputs/CodeReference";
 import {ComponentOrder} from "../../../shared/ComponentOrder";
+import {ErrorStateMatcher} from "@angular/material/core";
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-select-input-mode',
@@ -9,14 +11,34 @@ import {ComponentOrder} from "../../../shared/ComponentOrder";
 })
 export class SelectInputModeComponent implements OnInit {
 
+  validate=false;
   referenceCodeType: InputType;
 
-  constructor() { }
+  form: FormGroup;
+
+  refInputType=new FormControl('', [Validators.required]);
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      'refInputType': [ undefined, Validators.required ]
+    });
   }
 
   @Output() inputTypeEmitter = new EventEmitter<InputType>();
+
+
+  onSubmit(value: any) {
+    console.log('submit ', value);
+    if (this.form.valid) {
+      console.log('great');
+    }
+    else {
+      console.log('invalid');
+    }
+  }
+
 
   sendInputType() {
     this.inputTypeEmitter.emit(this.referenceCodeType);
@@ -26,7 +48,14 @@ export class SelectInputModeComponent implements OnInit {
 
 
   goToUploadInputs() {
-    this.sendInputType();
+    this.validate=true;
+    if(!this.hasError()){
+      this.sendInputType();
+    }
   }
 
+  hasError() {
+    return this.referenceCodeType==null;
+  }
 }
+

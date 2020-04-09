@@ -8,13 +8,16 @@ import {InputType} from "../../../shared/models/file-inputs/CodeReference";
 })
 export class UploadInputsComponent implements OnInit {
 
-  @Input() inputType: InputType;
+  @Input() refInputType: InputType;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log("we got the input type in upload inputs");
-    console.log(this.inputType)
+    // console.log("we got the input type in upload inputs");
+    // console.log(this.refInputType)
   }
+
+  get inputType() { return InputType; }
+
 
 }
