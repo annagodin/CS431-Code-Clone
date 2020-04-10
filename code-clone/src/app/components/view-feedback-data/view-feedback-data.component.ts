@@ -37,8 +37,8 @@ export class ViewFeedbackDataComponent implements OnInit {
   }
 
   addRandomDataPoint(){
-    let randRank = Math.floor(Math.random() * (+5 - +1)) + +1;
-    let randCloneType = Math.floor(Math.random() * (+4 - +1)) + +1;
+    let randRank = Math.floor(Math.random() * Math.floor(5))+1;
+    let randCloneType = Math.floor(Math.random() * Math.floor(4))+1;
     let randomText = ["hey", "bye", "testing this stuff", "idk"];
     let randTextOutput = Math.floor(Math.random() * Math.floor(5));
     console.log("randTextOutput: " + randTextOutput);

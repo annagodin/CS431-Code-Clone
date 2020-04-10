@@ -27,6 +27,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {PieChartModule} from "@swimlane/ngx-charts";
 // import { WavesModule, TableModule } from 'angular-bootstrap-md';
 
 
@@ -60,7 +62,9 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
+    PieChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,16 @@
-
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <body>
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light ">
+
+<!--  <body>-->
+
+<nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-light ">
   <a class="navbar-brand" href="#">Code Clone Detector</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
@@ -12,59 +19,40 @@
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="/code-analysis">Code Analysis</a>
+        <a class="nav-link" href="/code-analysis">Code Analysis</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/view-feedback-data">View Feedback</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="/view-statistics">View Statistics</a>
+        <a class="nav-link" href="/view-statistics">View Statistics</a>
       </li>
     </ul>
   </div>
 </nav>
 
 
-<div style="height: 10px"></div>
+<!--<div style="height: 10px"></div>-->
 
+  <div class="parallax">
+    <!-- Page Content -->
+    <div class="container">
+      <div class="card border-0 shadow my-5">
+        <div class="card-body p-4">
 
+          <router-outlet></router-outlet>
 
-  <!-- Page Content -->
-  <div class="container">
-    <div class="card border-0 shadow my-5">
-      <div class="card-body p-4">
-
-
-
-
-
-        <router-outlet></router-outlet>
-
+        </div>
       </div>
     </div>
+    <!--  End Page Content-->
   </div>
-<!--  End Page Content-->
 
 
 
 
-
-
-<div style="height: 10px"></div>
 
 
 
 </body>
-
-<!-- Footer -->
-<footer class="page-footer font-small blue">
-
-  <!-- Copyright -->
-  <div style="color: gray" class="footer-copyright text-center py-3">Created by: Anna Godin, Matt Kelly, Racquel Jones, and Daniel Cherdak
-  </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-
-
+</html>

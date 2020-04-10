@@ -24,6 +24,7 @@
     "@angular/router": "~9.0.5",
     "@ng-bootstrap/ng-bootstrap": "^6.0.2",
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
+    "@swimlane/ngx-charts": "^13.0.2",
     "angularfire2": "^5.4.2",
     "bootstrap": "^4.4.1",
     "firebase": "^7.9.3",
