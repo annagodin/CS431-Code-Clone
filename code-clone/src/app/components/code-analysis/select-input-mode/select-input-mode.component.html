@@ -1,6 +1,9 @@
-<div style="height: 10px"></div>
+<div class="divider"></div>
 
-<p class="lead">Please select a mode of input for the reference code:</p>
+<div class="lead">Please select a mode of input for the reference code</div>
+<div class="lead small">Note: Input code may only be a pasted code snippet</div>
+
+<div class="divider"></div>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
   <mat-form-field>
@@ -16,7 +19,7 @@
 
 
 
-  <div style="height: 10px"></div>
+  <div class="divider"></div>
   &nbsp;
   <button type="submit" class="btn btn-dark" (click)="goToUploadInputs()">Upload Inputs</button>
 

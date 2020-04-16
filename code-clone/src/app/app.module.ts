@@ -25,10 +25,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {PieChartModule} from "@swimlane/ngx-charts";
+import {MonacoEditorModule} from "ngx-monaco-editor";
 // import { WavesModule, TableModule } from 'angular-bootstrap-md';
 
 
@@ -64,7 +65,10 @@ import {PieChartModule} from "@swimlane/ngx-charts";
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    PieChartModule
+    PieChartModule,
+    MonacoEditorModule.forRoot(),
+    FormsModule,
+    // use forRoot() in main app module only.
   ],
   providers: [],
   bootstrap: [AppComponent]

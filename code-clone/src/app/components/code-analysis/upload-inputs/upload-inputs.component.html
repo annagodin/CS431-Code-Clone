@@ -1,5 +1,5 @@
 <!--<div>Input type: {{refInputType}}</div>-->
-<div style="height: 10px"></div>
+<div class="divider"></div>
 
 <div *ngIf="refInputType==inputType.PROJECT">
   <p class="lead">Upload an input code snippet and a project from disk</p>
@@ -7,29 +7,36 @@
 
 
 <div *ngIf="refInputType==inputType.SNIPPET">
-  <p class="lead">Upload two snippets</p>
-<!--  <mat-form-field appearance="fill">-->
-<!--    <mat-label>Textarea</mat-label>-->
-<!--    <textarea matInput></textarea>-->
-<!--  </mat-form-field>-->
-<h3>This will eventually be changed to a rich text editor - monaco editor</h3>
+  <div class="lead"><b>Upload two snippets:</b></div>
+
+  <div class="lead small">The input snippet will be used to search through the reference snippet to determine
+    if the input snippet is included anywhere in reference as a clone type 1, 2, 3, or 4
+  </div>
+
+  <div style="height: 10px"></div>
 
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <mat-form-field appearance="fill">
-          <mat-label >Code Input</mat-label>
-          <textarea matInput></textarea>
-        </mat-form-field>
+
+        <p class="lead">Input code</p>
+        <ngx-monaco-editor style="height: 300px" [options]="inputEditorOptions"
+                           [(ngModel)]="inputCode"></ngx-monaco-editor>
+
       </div>
       <div class="col-sm">
-        <mat-form-field appearance="fill">
-          <mat-label>Code Reference</mat-label>
-          <textarea matInput></textarea>
-        </mat-form-field>
+
+        <p class="lead">Reference code</p>
+        <ngx-monaco-editor style="height: 300px" [options]="referenceEditorOptions"
+                           [(ngModel)]="referenceCode"></ngx-monaco-editor>
+
       </div>
     </div>
   </div>
+
+  <div class="divider"></div>
+
+  <button type="submit" class="btn btn-dark" (click)="goToResults()">Get Results</button>
 
 
 </div>

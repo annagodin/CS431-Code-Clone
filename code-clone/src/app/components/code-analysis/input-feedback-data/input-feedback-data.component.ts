@@ -10,6 +10,7 @@ export class InputFeedbackDataComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
