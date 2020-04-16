@@ -21,14 +21,14 @@
 
         <p class="lead">Input code</p>
         <ngx-monaco-editor style="height: 300px" [options]="inputEditorOptions"
-                           [(ngModel)]="inputCode"></ngx-monaco-editor>
+                           [(ngModel)]="codeInput.contents"></ngx-monaco-editor>
 
       </div>
       <div class="col-sm">
 
         <p class="lead">Reference code</p>
         <ngx-monaco-editor style="height: 300px" [options]="referenceEditorOptions"
-                           [(ngModel)]="referenceCode"></ngx-monaco-editor>
+                           [(ngModel)]="codeReference.contents"></ngx-monaco-editor>
 
       </div>
     </div>
@@ -40,3 +40,4 @@
 
 
 </div>
+

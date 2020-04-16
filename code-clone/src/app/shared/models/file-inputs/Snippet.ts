@@ -3,14 +3,18 @@ import {CodeInput} from "./CodeInput";
 import {InputType} from "./CodeReference";
 
 export class Snippet implements CodeReference, CodeInput{
-  fileContents: String;
+  contents: String;
   ASTStructure: any;
   type: InputType;
 
-  constructor(fileName: String) {
+  constructor(fileName?: String, fileContents?: String) {
     this.type = InputType.SNIPPET;
-    this.getFileContents(fileName);
-    this.loadAST(this.fileContents);
+    if(fileName!=null){
+      this.getFileContents(fileName);
+    } else {
+      this.contents = fileContents;
+    }
+    this.loadAST(this.contents);
   }
 
   /**
@@ -32,7 +36,7 @@ export class Snippet implements CodeReference, CodeInput{
   }
 
   getContents(): String {
-    return this.fileContents;
+    return this.contents;
   }
 
   getASTContents(): any {

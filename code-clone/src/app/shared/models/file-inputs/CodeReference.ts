@@ -4,5 +4,6 @@ export enum InputType {
 }
 
 export interface CodeReference {
-  type: InputType
+  type: InputType;
+  contents?: any;
 }

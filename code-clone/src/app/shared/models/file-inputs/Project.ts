@@ -2,7 +2,7 @@ import {CodeReference, InputType} from "./CodeReference";
 import {Snippet} from "./Snippet";
 
 export class Project implements CodeReference{
-  files: Snippet[];
+  contents: Snippet[];
   type: InputType;
 
   constructor(folderName: String) {
@@ -24,9 +24,6 @@ export class Project implements CodeReference{
     return null;
   }
 
-  getFiles(): Snippet[] {
-    return this.files;
-  }
 
 
 

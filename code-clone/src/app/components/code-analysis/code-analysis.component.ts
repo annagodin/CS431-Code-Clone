@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ComponentOrder} from "../../shared/ComponentOrder";
-import {InputType} from "../../shared/models/file-inputs/CodeReference";
+import {CodeReference, InputType} from "../../shared/models/file-inputs/CodeReference";
+import {CodeInput} from "../../shared/models/file-inputs/CodeInput";
+import {CloneResults} from "../../shared/models/CloneResults";
 
 @Component({
   selector: 'app-code-analysis',
@@ -14,7 +16,20 @@ export class CodeAnalysisComponent implements OnInit {
   inputType: InputType;
   giveFeedback = false;
 
+
+  cloneResults: CloneResults;
+  codeInput: CodeInput;
+  codeReference: CodeReference;
+
   constructor() {
+    this.codeInput = new class implements CodeInput {
+      contents: String;
+    };
+    this.codeReference = new class implements CodeReference {
+      contents: any;
+      type: InputType;
+    };
+    this.cloneResults=new CloneResults(this.codeInput,this.codeReference);
   }
 
   ngOnInit(): void {
@@ -63,5 +78,28 @@ export class CodeAnalysisComponent implements OnInit {
   makePageAvailable(index){
     this.pageAvailability[index]=true;
   }
+
+
+  // getInputCode($event) {
+  //   console.log("-----code input got it");
+  //   this.codeInput = $event;
+  //   this.makePageAvailable(ComponentOrder.CLONE_RESULTS)
+  //   this.togglePage(ComponentOrder.CLONE_RESULTS, "CLONE_RESULTS");
+  // }
+  //
+  // getReferenceCode($event) {
+  //   console.log("-----code reference got it");
+  //   this.codeReference = $event;
+  //   // this.makePageAvailable(ComponentOrder.CLONE_RESULTS)
+  //   // this.togglePage(ComponentOrder.CLONE_RESULTS, "CLONE_RESULTS");
+  // }
+
+  getCloneResults($event) {
+    this.cloneResults=$event;
+    this.makePageAvailable(ComponentOrder.CLONE_RESULTS)
+    this.togglePage(ComponentOrder.CLONE_RESULTS, "CLONE_RESULTS");
+  }
+
+
 
 }

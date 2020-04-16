@@ -8,9 +8,10 @@ export class CloneResults{
   inputCode: CodeInput;
 
 
-  constructor(inputCode: CodeInput, referenceCode: CodeReference) {
-    this.inputCode=inputCode;
+  constructor(inputCode?: CodeInput, referenceCode?: CodeReference) {
+    this.inputCode = inputCode;
     this.referenceCode = referenceCode;
+    this.results = [];
   }
 
   getResult(index):CloneData{

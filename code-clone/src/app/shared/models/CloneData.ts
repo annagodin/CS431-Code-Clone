@@ -1,9 +1,11 @@
+import {CloneFeedback} from "./CloneFeedback";
+
 export class CloneData{
-  private type: Number;
-  private referenceLocation: [Number,Number];
-  private inputLocation: [Number,Number];
-  private methodName: String;
-  private feedback: CloneFeedback;
+   type: Number;
+   referenceLocation: [Number,Number];
+   inputLocation: [Number,Number];
+   methodName: String;
+   feedback: CloneFeedback;
 
 
   constructor(type: Number, referenceLocation: [Number, Number], inputLocation: [Number, Number], methodName: String) {
@@ -12,7 +14,6 @@ export class CloneData{
     this.inputLocation = inputLocation;
     this.methodName = methodName;
   }
-
 
   setFeedback(cloneFeedback: CloneFeedback) {
     this.feedback = cloneFeedback;

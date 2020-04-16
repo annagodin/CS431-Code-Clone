@@ -1,1 +1,42 @@
-<p>clone-results works!</p>
+<div class="lead"><b>Clone Results</b></div>
+
+<!--<div>{{cloneResults.referenceCode.contents}}</div>-->
+<!--<div>{{cloneResults.inputCode.contents}}</div>-->
+
+
+
+<div class  ="container">
+  <div class="row">
+    <div class="col-sm">
+      <p class="lead">Input code</p>
+<!--      <pre>-->
+<!--       <code [innerHTML]="cloneResults.inputCode.contents"></code>-->
+<!--      </pre>-->
+      <ngx-monaco-editor style="height: 300px" [options]="inputEditorOptions" (onInit)="onInit($event)"
+                         [(ngModel)]="cloneResults.inputCode.contents"></ngx-monaco-editor>
+
+<!--      <ngx-monaco-editor style="height: 300px" [options]="inputEditorOptions" (onInit)="onInit($event)"-->
+<!--                         [(ngModel)]="code_string_idk"></ngx-monaco-editor>-->
+
+    </div>
+    <div class="col-sm">
+
+      <p class="lead">Reference code</p>
+<!--      <pre>-->
+<!--       <code [innerHTML]="cloneResults.referenceCode.contents"></code>-->
+<!--      </pre>-->
+
+      <ngx-monaco-editor style="height: 300px" [options]="referenceEditorOptions"
+                         [(ngModel)]="cloneResults.referenceCode.contents"></ngx-monaco-editor>
+
+    </div>
+  </div>
+</div>
+
+
+<!--<div>Input type: {{refInputType}}</div>-->
+<div class="divider"></div>
+
+
+
+
