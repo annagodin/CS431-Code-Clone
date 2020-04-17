@@ -7,10 +7,14 @@ export class CloneFeedback{
    textFeedback?: string;
    id: string;
 
-  constructor(rating: number, cloneType: number, text: string) {
+  constructor(rating?: number, cloneType?: number, text?: string) {
     this.textFeedback = text;
     this.rating = rating;
     this.cloneType=cloneType;
+  }
+
+  toString():String{
+    return "rating: " + this.rating + ", clone type: " + this.cloneType + ", text: " + this.textFeedback;
   }
 
 }

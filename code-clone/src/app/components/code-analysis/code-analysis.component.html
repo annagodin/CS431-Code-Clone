@@ -29,7 +29,7 @@
 
 <app-select-input-mode (inputTypeEmitter)="getInputType($event)" [hidden]="!pageView[componentOrder.SELECT_INPUT_MODE]"></app-select-input-mode>
 <app-upload-inputs (cloneResultsEmitter)="getCloneResults($event)" [refInputType]="inputType" [hidden]="!pageView[componentOrder.UPLOAD_INPUTS]"></app-upload-inputs>
-<app-clone-results [cloneResults]="cloneResults" [hidden]="!pageView[componentOrder.CLONE_RESULTS]"></app-clone-results>
-<app-input-feedback-data [hidden]="!pageView[componentOrder.INPUT_FEEDBACK_DATA]"></app-input-feedback-data>
+<app-clone-results (cloneResultsEmitter)="goToInputFeedback($event)" [cloneResults]="cloneResults" [hidden]="!pageView[componentOrder.CLONE_RESULTS]"></app-clone-results>
+<app-input-feedback-data [cloneResults]="cloneResults" [hidden]="!pageView[componentOrder.INPUT_FEEDBACK_DATA]"></app-input-feedback-data>
 
 

@@ -1,6 +1,7 @@
 import {CloneData} from "./CloneData";
 import {CodeReference} from "./file-inputs/CodeReference";
 import {CodeInput} from "./file-inputs/CodeInput";
+import {CloneFeedback} from "./CloneFeedback";
 
 export class CloneResults{
   results: CloneData[];
@@ -12,6 +13,21 @@ export class CloneResults{
     this.inputCode = inputCode;
     this.referenceCode = referenceCode;
     this.results = [];
+
+
+    //for testing
+    let randNumClones = Math.floor(Math.random() * Math.floor(5));
+    for (let i=0; i<randNumClones; i++){
+      this.addRandomResult();
+    }
+
+  }
+
+  addRandomResult(){
+    let randCloneType = Math.floor(Math.random() * Math.floor(4))+1;
+    let c = new CloneData(randCloneType,[3,5],[3,5],"main");
+    c.feedback= new CloneFeedback(0,randCloneType,null);
+    this.results.push(c);
   }
 
   getResult(index):CloneData{

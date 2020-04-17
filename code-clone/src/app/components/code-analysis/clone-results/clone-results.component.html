@@ -1,8 +1,12 @@
+<div class="divider"></div>
+
 <div class="lead"><b>Clone Results</b></div>
 
-<!--<div>{{cloneResults.referenceCode.contents}}</div>-->
-<!--<div>{{cloneResults.inputCode.contents}}</div>-->
-
+<ul>
+  <li *ngFor="let result of cloneResults.results">
+    {{ result.toString() }}
+  </li>
+</ul>
 
 
 <div class  ="container">
@@ -34,9 +38,14 @@
 </div>
 
 
-<!--<div>Input type: {{refInputType}}</div>-->
 <div class="divider"></div>
 
 
-
+<button class="btn btn-dark"
+        matTooltip="OPTIONAL: Click to submit feedback on the accuracy of the clones detected"
+        [matTooltipPosition]="position"
+        (click)="goToFeedback()"
+        aria-label="Button that displays a tooltip">
+  Submit Feedback
+</button>
 

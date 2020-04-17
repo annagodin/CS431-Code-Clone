@@ -3,6 +3,8 @@ import {ComponentOrder} from "../../shared/ComponentOrder";
 import {CodeReference, InputType} from "../../shared/models/file-inputs/CodeReference";
 import {CodeInput} from "../../shared/models/file-inputs/CodeInput";
 import {CloneResults} from "../../shared/models/CloneResults";
+import {CloneFeedback} from "../../shared/models/CloneFeedback";
+import {CloneData} from "../../shared/models/CloneData";
 
 @Component({
   selector: 'app-code-analysis',
@@ -21,6 +23,9 @@ export class CodeAnalysisComponent implements OnInit {
   codeInput: CodeInput;
   codeReference: CodeReference;
 
+
+  feedbackData: CloneFeedback[];
+
   constructor() {
     this.codeInput = new class implements CodeInput {
       contents: String;
@@ -30,6 +35,10 @@ export class CodeAnalysisComponent implements OnInit {
       type: InputType;
     };
     this.cloneResults=new CloneResults(this.codeInput,this.codeReference);
+    this.cloneResults.results = new Array<CloneData>();
+    let cloneDataTemp = new CloneData(0,[0,0],[0,0],null);
+    cloneDataTemp.feedback= new CloneFeedback(0,0,null)
+    this.cloneResults.results.push(cloneDataTemp);
   }
 
   ngOnInit(): void {
@@ -80,20 +89,6 @@ export class CodeAnalysisComponent implements OnInit {
   }
 
 
-  // getInputCode($event) {
-  //   console.log("-----code input got it");
-  //   this.codeInput = $event;
-  //   this.makePageAvailable(ComponentOrder.CLONE_RESULTS)
-  //   this.togglePage(ComponentOrder.CLONE_RESULTS, "CLONE_RESULTS");
-  // }
-  //
-  // getReferenceCode($event) {
-  //   console.log("-----code reference got it");
-  //   this.codeReference = $event;
-  //   // this.makePageAvailable(ComponentOrder.CLONE_RESULTS)
-  //   // this.togglePage(ComponentOrder.CLONE_RESULTS, "CLONE_RESULTS");
-  // }
-
   getCloneResults($event) {
     this.cloneResults=$event;
     this.makePageAvailable(ComponentOrder.CLONE_RESULTS)
@@ -101,5 +96,14 @@ export class CodeAnalysisComponent implements OnInit {
   }
 
 
-
+  goToInputFeedback($event) {
+    this.cloneResults=$event;
+    this.makePageAvailable(ComponentOrder.INPUT_FEEDBACK_DATA);
+    this.togglePage(ComponentOrder.INPUT_FEEDBACK_DATA, "INPUT_FEEDBACK_DATA");
+    this.giveFeedback=true;
+  }
+  //
+  // getFeedbackData($event) {
+  //   this.feedbackData = $event;
+  // }
 }

@@ -1,41 +1,24 @@
 import {CloneFeedback} from "./CloneFeedback";
 
 export class CloneData{
-   type: Number;
-   referenceLocation: [Number,Number];
-   inputLocation: [Number,Number];
-   methodName: String;
+   cloneType: number;
+   referenceLocation: [number,number];
+   inputLocation: [number,number];
+   methodName: string;
    feedback: CloneFeedback;
 
 
-  constructor(type: Number, referenceLocation: [Number, Number], inputLocation: [Number, Number], methodName: String) {
-    this.type = type;
+  constructor(type: number, referenceLocation: [number, number], inputLocation: [number, number], methodName: string) {
+    this.cloneType = type;
     this.referenceLocation = referenceLocation;
     this.inputLocation = inputLocation;
     this.methodName = methodName;
   }
 
-  setFeedback(cloneFeedback: CloneFeedback) {
-    this.feedback = cloneFeedback;
+  toString(): String{
+    return "type: " + this.cloneType + ",\nref location: " + this.referenceLocation
+    + ",\ninput location: " + this.inputLocation + ",\nmethod name: " + this.methodName
+    + ",\nfeedback: " + this.feedback;
   }
 
-  getFeedback(): CloneFeedback {
-    return this.feedback;
-  }
-
-  getType(): Number {
-    return this.type;
-  }
-
-  getReferenceLocation(): [Number, Number] {
-    return this.referenceLocation;
-  }
-
-  getInputLocation(): [Number, Number] {
-    return this.inputLocation;
-  }
-
-  getMethodName(): String {
-    return this.methodName;
-  }
 }

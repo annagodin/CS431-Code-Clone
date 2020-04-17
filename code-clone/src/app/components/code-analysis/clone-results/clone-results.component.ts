@@ -1,9 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CodeReference, InputType} from "../../../shared/models/file-inputs/CodeReference";
 import {CodeInput} from "../../../shared/models/file-inputs/CodeInput";
 import {CloneResults} from "../../../shared/models/CloneResults";
 import {DiffEditorModel, NgxEditorModel} from "ngx-monaco-editor";
 import {MonacoEditorModule} from "ngx-monaco-editor";
+import {CloneFeedback} from "../../../shared/models/CloneFeedback";
+
+
+// https://stackoverflow.com/questions/59275532/monaco-deltadecorations-disappear-in-angular-7-when-model-changes
 
 @Component({
   selector: 'app-clone-results',
@@ -12,6 +16,8 @@ import {MonacoEditorModule} from "ngx-monaco-editor";
 })
 export class CloneResultsComponent implements OnInit {
   @Input() cloneResults: CloneResults;
+  @Output() cloneResultsEmitter = new EventEmitter<CloneResults>();
+  @Output() feedbackDataEmitter = new EventEmitter<CloneFeedback[]>();
 
 
   inputEditorOptions = {theme: 'vs', language: 'java', readOnly: true};
@@ -21,6 +27,7 @@ export class CloneResultsComponent implements OnInit {
     "        System.out.println(\"Hello, World\");\n" +
     "    }\n" +
     "}";
+  position: any = "after";
 
 
   onInit(editor: any) {
@@ -45,5 +52,17 @@ export class CloneResultsComponent implements OnInit {
 
   goToFeedback() {
 
+    let cloneFeedback = new Array<CloneFeedback>(this.cloneResults.results.length);
+
+    for (let i = 0; i < cloneFeedback.length; i++) {
+      let cloneFeedbackData = new CloneFeedback();
+      cloneFeedbackData.cloneType = this.cloneResults.results[i].cloneType;
+      this.cloneResults.results[i].feedback=cloneFeedbackData;
+      cloneFeedback[i] = cloneFeedbackData;
+    }
+
+    this.cloneResultsEmitter.emit(this.cloneResults);
+    // console.log("CLONE FEEDBACK LENGTH: " + cloneFeedback.length);
+    // this.feedbackDataEmitter.emit(cloneFeedback);
   }
 }

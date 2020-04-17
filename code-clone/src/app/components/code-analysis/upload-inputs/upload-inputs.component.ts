@@ -20,6 +20,7 @@ export class UploadInputsComponent implements OnInit {
 
   referenceEditorOptions = {theme: 'vs-dark', language: 'java'};
   inputEditorOptions = {theme: 'vs-dark', language: 'java'};
+
   code_string = "//the is a placeholder for code inputs\npublic class HelloWorld {\n" +
     "    public static void main(String[] args) {\n" +
     "        System.out.println(\"Hello, World\");\n" +
@@ -54,6 +55,8 @@ export class UploadInputsComponent implements OnInit {
     console.log(this.codeInput.contents);
 
     this.cloneResults = new CloneResults(this.codeInput,this.codeReference);
+    console.log("~~~~~CLONE DATA");
+    console.log(this.cloneResults.results);
     this.cloneResultsEmitter.emit(this.cloneResults);
 
 

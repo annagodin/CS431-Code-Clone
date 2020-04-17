@@ -17,7 +17,7 @@ import { InputFeedbackDataComponent } from './components/code-analysis/input-fee
 import { ViewStatisticsComponent } from './components/view-statistics/view-statistics.component';
 import { HomeComponent } from './components/home/home.component';
 import { CodeAnalysisComponent } from './components/code-analysis/code-analysis.component';
-import {TabsModule} from "ngx-bootstrap";
+import {TabsModule, TooltipModule} from "ngx-bootstrap";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {ScrollingModule} from "@angular/cdk/scrolling";
@@ -30,6 +30,10 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {PieChartModule} from "@swimlane/ngx-charts";
 import {MonacoEditorModule} from "ngx-monaco-editor";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatRadioModule} from "@angular/material/radio";
 // import { WavesModule, TableModule } from 'angular-bootstrap-md';
 
 
@@ -68,6 +72,11 @@ import {MonacoEditorModule} from "ngx-monaco-editor";
     PieChartModule,
     MonacoEditorModule.forRoot(),
     FormsModule,
+    TooltipModule,
+    MatTooltipModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatRadioModule,
     // use forRoot() in main app module only.
   ],
   providers: [],
