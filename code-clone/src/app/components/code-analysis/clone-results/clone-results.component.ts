@@ -5,7 +5,7 @@ import {CloneResults} from "../../../shared/models/CloneResults";
 import {DiffEditorModel, NgxEditorModel} from "ngx-monaco-editor";
 import {MonacoEditorModule} from "ngx-monaco-editor";
 import {CloneFeedback} from "../../../shared/models/CloneFeedback";
-
+// https://github.com/MurhafSousli/ngx-highlightjs/blob/master/README_v2.md
 
 // https://stackoverflow.com/questions/59275532/monaco-deltadecorations-disappear-in-angular-7-when-model-changes
 

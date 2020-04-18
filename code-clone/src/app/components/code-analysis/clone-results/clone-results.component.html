@@ -9,6 +9,9 @@
 </ul>
 
 
+
+
+
 <div class  ="container">
   <div class="row">
     <div class="col-sm">
@@ -16,11 +19,11 @@
 <!--      <pre>-->
 <!--       <code [innerHTML]="cloneResults.inputCode.contents"></code>-->
 <!--      </pre>-->
-      <ngx-monaco-editor style="height: 300px" [options]="inputEditorOptions" (onInit)="onInit($event)"
-                         [(ngModel)]="cloneResults.inputCode.contents"></ngx-monaco-editor>
-
 <!--      <ngx-monaco-editor style="height: 300px" [options]="inputEditorOptions" (onInit)="onInit($event)"-->
-<!--                         [(ngModel)]="code_string_idk"></ngx-monaco-editor>-->
+<!--                         [(ngModel)]="cloneResults.inputCode.contents"></ngx-monaco-editor>-->
+
+      <pre><code class="code" [highlight]="cloneResults.inputCode.contents" [lineNumbers]="true" ></code></pre>
+
 
     </div>
     <div class="col-sm">
@@ -30,8 +33,9 @@
 <!--       <code [innerHTML]="cloneResults.referenceCode.contents"></code>-->
 <!--      </pre>-->
 
-      <ngx-monaco-editor style="height: 300px" [options]="referenceEditorOptions"
-                         [(ngModel)]="cloneResults.referenceCode.contents"></ngx-monaco-editor>
+<!--      <ngx-monaco-editor style="height: 300px" [options]="referenceEditorOptions"-->
+<!--                         [(ngModel)]="cloneResults.referenceCode.contents"></ngx-monaco-editor>-->
+      <pre><code [highlight]="cloneResults.referenceCode.contents" [lineNumbers]="true" ></code></pre>
 
     </div>
   </div>

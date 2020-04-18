@@ -1,4 +1,10 @@
 
-.divider{
+.divider {
   height: 10px
 }
+
+.code{
+  max-width: inherit;
+  max-height: 500px;
+}
+

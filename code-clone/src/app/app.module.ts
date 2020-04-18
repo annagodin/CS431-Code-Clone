@@ -34,8 +34,18 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatRadioModule} from "@angular/material/radio";
-// import { WavesModule, TableModule } from 'angular-bootstrap-md';
+import {HighlightModule, HIGHLIGHT_OPTIONS, HighlightOptions} from "ngx-highlightjs";
+// import 'highlightjs-line-numbers.js';
+// import hljs from 'highlight.js';
 
+export function getHighlightLanguages() {
+  return {
+    typescript: () => import('highlight.js/lib/languages/typescript'),
+    css: () => import('highlight.js/lib/languages/css'),
+    xml: () => import('highlight.js/lib/languages/xml'),
+    java: () => import('highlight.js/lib/languages/java')
+  };
+}
 
 @NgModule({
   declarations: [
@@ -77,9 +87,18 @@ import {MatRadioModule} from "@angular/material/radio";
     MatExpansionModule,
     MatDatepickerModule,
     MatRadioModule,
+    HighlightModule
     // use forRoot() in main app module only.
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue:  <HighlightOptions>{
+        languages: getHighlightLanguages(),
+        lineNumbers: true
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
