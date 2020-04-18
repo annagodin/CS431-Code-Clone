@@ -12,3 +12,7 @@ table {
   position: sticky;
   z-index: 10;
 }
+
+.divider{
+  height: 10px
+}

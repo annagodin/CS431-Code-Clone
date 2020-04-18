@@ -3,42 +3,54 @@
 <div class="lead"><b>Input Feedback for Clone Results</b></div>
 
 
+<div *ngIf="!isFeedbackUploaded">
+  <mat-accordion class="example-headers-align">
 
-<mat-accordion class="example-headers-align">
+    <mat-expansion-panel  *ngFor="let result of cloneResults.results; let i = index" [expanded]="step === i" (opened)="setStep(i)" >
+      <mat-expansion-panel-header style="background: #d7d7d7">
+        <mat-panel-title>
+          {{"Clone type: " + result.cloneType}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{"Input Location: " + result.inputLocation + "\t Reference Location: " + result.inputLocation + "\t Method: " + result.methodName}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="divider"></div>
 
-  <mat-expansion-panel  *ngFor="let result of cloneResults.results; let i = index" [expanded]="step === i" (opened)="setStep(i)" >
-    <mat-expansion-panel-header style="background: #d7d7d7">
-      <mat-panel-title>
-        {{"Clone type: " + result.cloneType}}
-      </mat-panel-title>
-      <mat-panel-description>
-        {{"Input Location: " + result.inputLocation + "\t Reference Location: " + result.inputLocation + "\t Method: " + result.methodName}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div class="divider"></div>
+      <label id="example-radio-group-label">Do you agree with the output of the clone algorithm?</label>
+      <br>
+      <mat-radio-group [(ngModel)]="cloneResults.results[i].feedback.rating" aria-label="Select an option"
+                       aria-labelledby="example-radio-group-label">
+        <mat-radio-button value="5">Agree</mat-radio-button> <br>
+        <mat-radio-button value="4">Slightly Agree</mat-radio-button> <br>
+        <mat-radio-button value="3">Neither Agree nor Disagree</mat-radio-button> <br>
+        <mat-radio-button value="2">Slightly Disagree</mat-radio-button> <br>
+        <mat-radio-button value="1">Disagree</mat-radio-button>
+      </mat-radio-group>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Leave some textual feedback (optional)</mat-label>
+        <textarea [(ngModel)]="cloneResults.results[i].feedback.textFeedback" matInput placeholder="Ex. I agree/disagree with this output because..."></textarea>
+      </mat-form-field>
 
-    <label id="example-radio-group-label">Do you agree with the output of the clone algorithm?</label>
-    <br>
-    <mat-radio-group [(ngModel)]="cloneResults.results[i].feedback.rating" aria-label="Select an option"
-                     aria-labelledby="example-radio-group-label">
-      <mat-radio-button value="5">Agree</mat-radio-button> <br>
-      <mat-radio-button value="4">Slightly Agree</mat-radio-button> <br>
-      <mat-radio-button value="3">Neither Agree nor Disagree</mat-radio-button> <br>
-      <mat-radio-button value="2">Slightly Disagree</mat-radio-button> <br>
-      <mat-radio-button value="1">Disagree</mat-radio-button>
-    </mat-radio-group>
-    <br>
-    <mat-form-field class="example-full-width">
-      <mat-label>Leave some textual feedback (optional)</mat-label>
-      <textarea [(ngModel)]="cloneResults.results[i].feedback.textFeedback" matInput placeholder="Ex. I agree/disagree with this output because..."></textarea>
-    </mat-form-field>
+      <mat-action-row>
+        <button mat-button color="warn" [hidden]="step==0" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" [hidden]="step==cloneResults.results.length-1" (click)="nextStep()">Next</button>
+        <button mat-button color="primary" [hidden]="step!=cloneResults.results.length-1" (click)="uploadFeedback(); nextStep()">Submit</button>
 
-  <mat-action-row>
-    <button mat-button color="warn" [hidden]="step==0" (click)="prevStep()">Previous</button>
-    <button mat-button color="primary" [hidden]="step==cloneResults.results.length-1" (click)="nextStep()">Next</button>
-    <button mat-button color="primary" [hidden]="step!=cloneResults.results.length-1" (click)="uploadFeedback(); nextStep()">Submit</button>
+      </mat-action-row>
+    </mat-expansion-panel>
 
-  </mat-action-row>
-  </mat-expansion-panel>
+  </mat-accordion>
 
-</mat-accordion>
+</div>
+<div *ngIf="isFeedbackUploaded">
+  <div class="lead">Thank you for providing feedback on the accuracy of the code clone algorithm</div>
+  <div class="divider"></div>
+  <a class="btn btn-dark" href="/view-feedback-data">View Feedback</a>
+  &nbsp;
+  <a class="btn btn-dark" href="/view-statistics">View Statistics</a>
+
+
+
+</div>
