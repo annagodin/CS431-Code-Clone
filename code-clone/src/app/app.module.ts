@@ -35,6 +35,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatRadioModule} from "@angular/material/radio";
 import {HighlightModule, HIGHLIGHT_OPTIONS, HighlightOptions} from "ngx-highlightjs";
+import {NgxFileDropModule} from "ngx-file-drop";
+import {HttpClientModule} from "@angular/common/http";
 // import 'highlightjs-line-numbers.js';
 // import hljs from 'highlight.js';
 
@@ -87,7 +89,9 @@ export function getHighlightLanguages() {
     MatExpansionModule,
     MatDatepickerModule,
     MatRadioModule,
-    HighlightModule
+    HighlightModule,
+    NgxFileDropModule,
+    HttpClientModule
     // use forRoot() in main app module only.
   ],
   providers: [

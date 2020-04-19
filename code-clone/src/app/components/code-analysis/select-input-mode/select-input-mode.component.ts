@@ -41,6 +41,7 @@ export class SelectInputModeComponent implements OnInit {
 
 
   sendInputType() {
+    console.log("SENDING referenceCodeType:" + this.referenceCodeType);
     this.inputTypeEmitter.emit(this.referenceCodeType);
   }
 

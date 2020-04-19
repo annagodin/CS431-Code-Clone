@@ -6,3 +6,25 @@ mat-form-field {
 .divider{
   height: 10px
 }
+.example-container {
+  max-height: 281px;
+  overflow: auto;
+  width: inherit;
+}
+
+.mat-column-fileName {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 500px;
+}
+
+
+mat-icon {
+  font-size: 20px;
+  /*color: dimgray;*/
+}
+
+.upload-table{
+  overflow: auto;
+  max-height: 250px;
+}

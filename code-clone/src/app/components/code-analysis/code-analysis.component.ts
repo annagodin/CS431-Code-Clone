@@ -60,6 +60,10 @@ export class CodeAnalysisComponent implements OnInit {
 
   togglePage(index, string) {
 
+    if(index>0){
+      this.pageAvailability[0]=false;
+    }
+
     if(this.pageAvailability[index]==false){
       return;
     }

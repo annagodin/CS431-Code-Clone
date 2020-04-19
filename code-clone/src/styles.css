@@ -64,3 +64,12 @@ td.hljs-ln-code {
   padding-left: 8px !important;
 }
 
+
+/* Custom style class name(s) to be used on the drop-zone area */
+.file-drop{
+  background: #e0e0e0;
+  border: 3px rgb(122, 122, 122);
+  border-radius: 3px;
+  font-size: large;
+}
+

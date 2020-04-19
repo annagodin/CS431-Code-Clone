@@ -31,6 +31,7 @@
     "highlightjs-line-numbers.js": "^2.7.0",
     "jquery": "^3.4.1",
     "ngx-bootstrap": "^5.5.0",
+    "ngx-file-drop": "^9.0.1",
     "ngx-highlightjs": "^4.1.0-beta",
     "ngx-monaco-editor": "^9.0.0",
     "rxjs": "~6.5.4",

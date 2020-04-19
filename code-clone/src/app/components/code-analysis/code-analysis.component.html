@@ -12,7 +12,7 @@
 
 
 <mat-button-toggle-group [value]="currentView" #group="matButtonToggleGroup" (change)="onValChange(group.value)">
-  <mat-button-toggle  value="SELECT_INPUT_MODE" (click)="togglePage(componentOrder.SELECT_INPUT_MODE, 'SELECT_INPUT_MODE' )"  aria-label="Text align left">
+  <mat-button-toggle  disabled="{{!pageAvailability[componentOrder.SELECT_INPUT_MODE]}}" value="SELECT_INPUT_MODE" (click)="togglePage(componentOrder.SELECT_INPUT_MODE, 'SELECT_INPUT_MODE' )"  aria-label="Text align left">
     SELECT INPUT MODE
   </mat-button-toggle>
   <mat-button-toggle disabled="{{!pageAvailability[componentOrder.UPLOAD_INPUTS]}}" value="UPLOAD_INPUTS" (click)="togglePage(componentOrder.UPLOAD_INPUTS, 'UPLOAD_INPUTS')"   aria-label="Text align center">

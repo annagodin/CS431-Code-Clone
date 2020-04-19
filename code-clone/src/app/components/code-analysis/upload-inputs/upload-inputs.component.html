@@ -3,6 +3,83 @@
 
 <div *ngIf="refInputType==inputType.PROJECT">
   <p class="lead">Upload an input code snippet and a project from disk</p>
+  <div class="lead small">The input snippet will be used to search through the reference project that is uploaded from
+    disk. <br> It will determine
+    if the input snippet is included anywhere in reference as a clone type 1, 2, 3, or 4
+  </div>
+
+  <div style="height: 10px"></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <p class="lead">Input code</p>
+        <ngx-monaco-editor style="height: 400px" [options]="inputEditorOptions"
+                           [(ngModel)]="codeInput.contents"></ngx-monaco-editor>
+      </div>
+      <div class="col-sm">
+        <p class="lead">Reference project
+          <mat-icon matTooltip="Only Java files will be parsed and evaluated. Other files will be ignored"
+                    [matTooltipPosition]="position">info
+          </mat-icon>
+        </p>
+
+        <!--       FILE UPLOADER HERE-->
+
+
+        <div class="center">
+          <ngx-file-drop dropZoneClassName="file-drop" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                         [showBrowseBtn]="true" directory="true"
+                         (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+            <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+              Drop project directory here, or
+              &nbsp;
+              <button type="button" class="btn btn-sm btn-primary" (click)="openFileSelector()">Browse Files</button>
+            </ng-template>
+          </ngx-file-drop>
+
+          <div class="divider"></div>
+          <div *ngIf="filesUploaded">
+            <strong>Uploaded Files:</strong>
+            <div class="divider"></div>
+            <div class="upload-table table-responsive mat-elevation-z1">
+              <table class="table table-fixed">
+                <tbody class="upload-name-style">
+                <tr *ngFor="let item of fileStrings; let i=index">
+                  <td>{{ item.fileName }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+<!--          <div *ngIf="filesUploaded">-->
+<!--            <div class="example-container mat-elevation-z1">-->
+<!--              <table mat-table [dataSource]="fileStrings">-->
+<!--                <ng-container matColumnDef="fileName">-->
+<!--                  <th mat-header-cell *matHeaderCellDef>Uploaded Files</th>-->
+<!--                  <td mat-cell *matCellDef="let element"> {{element.fileName}} </td>-->
+<!--                </ng-container>-->
+<!--                &lt;!&ndash;                        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>&ndash;&gt;-->
+<!--                &lt;!&ndash;                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>&ndash;&gt;-->
+<!--                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>-->
+<!--                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+<!--              </table>-->
+<!--            </div>-->
+<!--          </div>-->
+
+
+
+        </div>
+
+
+        <!--       FILE UPLOADER HERE-->
+
+
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
@@ -18,26 +95,22 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-
         <p class="lead">Input code</p>
         <ngx-monaco-editor style="height: 300px" [options]="inputEditorOptions"
                            [(ngModel)]="codeInput.contents"></ngx-monaco-editor>
-
       </div>
       <div class="col-sm">
-
         <p class="lead">Reference code</p>
         <ngx-monaco-editor style="height: 300px" [options]="referenceEditorOptions"
                            [(ngModel)]="codeReference.contents"></ngx-monaco-editor>
-
       </div>
     </div>
   </div>
 
-  <div class="divider"></div>
-
-  <button type="submit" class="btn btn-dark" (click)="goToResults()">Get Results</button>
-
-
 </div>
 
+<div class="divider"></div>
+
+<button type="submit" class="btn btn-dark" (click)="goToResults()">Get Results</button>
+&nbsp;
+<!--<button class="btn btn-light" (click)="printFileList()">Print Files</button>-->

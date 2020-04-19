@@ -3,28 +3,17 @@ import {CodeInput} from "./CodeInput";
 import {InputType} from "./CodeReference";
 
 export class Snippet implements CodeReference, CodeInput{
-  contents: String;
+  contents: string;
   ASTStructure: any;
   type: InputType;
+  fileName: string;
 
-  constructor(fileName?: String, fileContents?: String) {
+  constructor(fileName?: string, fileContents?: string) {
     this.type = InputType.SNIPPET;
-    if(fileName!=null){
-      this.getFileContents(fileName);
-    } else {
-      this.contents = fileContents;
-    }
-    this.loadAST(this.contents);
+    this.fileName=fileName;
+    this.contents=fileContents;
   }
 
-  /**
-   * Extracts file contents and loads them into a String
-   * @param fileName
-   */
-  getFileContents(fileName: String): String{
-    //TODO
-    return null;
-  }
 
   /**
    * Generates AST representation of the Java file contents
@@ -35,13 +24,7 @@ export class Snippet implements CodeReference, CodeInput{
     //TODO
   }
 
-  getContents(): String {
-    return this.contents;
-  }
 
-  getASTContents(): any {
-    return this.ASTStructure;
-  }
 
 
 

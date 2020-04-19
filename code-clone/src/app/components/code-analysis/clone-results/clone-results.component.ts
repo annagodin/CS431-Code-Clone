@@ -65,4 +65,10 @@ export class CloneResultsComponent implements OnInit {
     // console.log("CLONE FEEDBACK LENGTH: " + cloneFeedback.length);
     // this.feedbackDataEmitter.emit(cloneFeedback);
   }
+
+
+  get inputType() {
+    return InputType;
+  }
+
 }

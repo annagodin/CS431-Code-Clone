@@ -4,7 +4,9 @@
 }
 
 .code{
-  max-width: inherit;
-  max-height: 500px;
+  max-width: content-box;
+  /*max-width: 500px;*/
+  max-height: 600px;
+
 }
 

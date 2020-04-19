@@ -8,43 +8,28 @@
   </li>
 </ul>
 
-
-
-
-
-<div class  ="container">
-  <div class="row">
-    <div class="col-sm">
-      <p class="lead">Input code</p>
-<!--      <pre>-->
-<!--       <code [innerHTML]="cloneResults.inputCode.contents"></code>-->
-<!--      </pre>-->
-<!--      <ngx-monaco-editor style="height: 300px" [options]="inputEditorOptions" (onInit)="onInit($event)"-->
-<!--                         [(ngModel)]="cloneResults.inputCode.contents"></ngx-monaco-editor>-->
-
-      <pre><code class="code" [highlight]="cloneResults.inputCode.contents" [lineNumbers]="true" ></code></pre>
-
-
-    </div>
-    <div class="col-sm">
-
-      <p class="lead">Reference code</p>
-<!--      <pre>-->
-<!--       <code [innerHTML]="cloneResults.referenceCode.contents"></code>-->
-<!--      </pre>-->
-
-<!--      <ngx-monaco-editor style="height: 300px" [options]="referenceEditorOptions"-->
-<!--                         [(ngModel)]="cloneResults.referenceCode.contents"></ngx-monaco-editor>-->
-      <pre><code [highlight]="cloneResults.referenceCode.contents" [lineNumbers]="true" ></code></pre>
-
+<div *ngIf="cloneResults.referenceCode.type==inputType.SNIPPET">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <p class="lead">Input code</p>
+        <pre><code class="code" [highlight]="cloneResults.inputCode.contents" [lineNumbers]="true" ></code></pre>
+      </div>
+      <div class="col-sm">
+        <p class="lead">Reference code</p>
+        <pre><code class="code" [highlight]="cloneResults.referenceCode.contents" [lineNumbers]="true" ></code></pre>
+      </div>
     </div>
   </div>
 </div>
 
 
+<div *ngIf="cloneResults.referenceCode.type==inputType.PROJECT">
+  <p>this is where project results will go</p>
+</div>
+
+
 <div class="divider"></div>
-
-
 <button class="btn btn-dark"
         matTooltip="OPTIONAL: Click to submit feedback on the accuracy of the clones detected"
         [matTooltipPosition]="position"
