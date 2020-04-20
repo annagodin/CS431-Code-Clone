@@ -19,6 +19,9 @@ export class CloneResultsComponent implements OnInit {
   @Output() cloneResultsEmitter = new EventEmitter<CloneResults>();
   @Output() feedbackDataEmitter = new EventEmitter<CloneFeedback[]>();
 
+  displayedColumns: string[] = ['cloneType', 'inputLocation', 'referenceLocation', 'methodName'];
+  projectDisplayedColumns: string[] = ['cloneType', 'inputLocation', 'referenceFileName', 'referenceLocation', 'methodName'];
+
 
   inputEditorOptions = {theme: 'vs', language: 'java', readOnly: true};
   referenceEditorOptions = {theme: 'vs', language: 'java', readOnly: true};

@@ -18,7 +18,7 @@
 
       <label id="example-radio-group-label">Do you agree with the output of the clone algorithm?</label>
       <br>
-      <mat-radio-group [(ngModel)]="cloneResults.results[i].feedback.rating" aria-label="Select an option"
+      <mat-radio-group required [(ngModel)]="cloneResults.results[i].feedback.rating" aria-label="Select an option"
                        aria-labelledby="example-radio-group-label">
         <mat-radio-button value="5">Agree</mat-radio-button> <br>
         <mat-radio-button value="4">Slightly Agree</mat-radio-button> <br>
