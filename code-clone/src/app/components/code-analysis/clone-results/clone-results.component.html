@@ -8,24 +8,34 @@
   </li>
 </ul>
 
-<div *ngIf="cloneResults.referenceCode.type==inputType.SNIPPET">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <p class="lead">Input code</p>
-        <pre><code class="code" [highlight]="cloneResults.inputCode.contents" [lineNumbers]="true" ></code></pre>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <p class="lead">Input code</p>
+<!--      <div *ngIf="cloneResults.referenceCode.type==inputType.PROJECT">-->
+<!--        <div class="big-divider"></div>-->
+<!--      </div>-->
+      <pre><code class="code" [highlight]="cloneResults.inputCode.contents" [lineNumbers]="true"></code></pre>
+    </div>
+    <div class="col-sm">
+      <p class="lead">Reference code</p>
+      <div *ngIf="cloneResults.referenceCode.type==inputType.SNIPPET">
+        <pre><code class="code" [highlight]="cloneResults.referenceCode.contents" [lineNumbers]="true"></code></pre>
       </div>
-      <div class="col-sm">
-        <p class="lead">Reference code</p>
-        <pre><code class="code" [highlight]="cloneResults.referenceCode.contents" [lineNumbers]="true" ></code></pre>
+      <div *ngIf="cloneResults.referenceCode.type==inputType.PROJECT">
+        <div style='min-height:500px'>
+          <mat-tab-group>
+            <mat-tab *ngFor="let snippet of cloneResults.referenceCode.contents" label="{{snippet.fileName}}">
+              <div class="divider"></div>
+              <pre><code class="code" [highlight]="snippet.contents" [lineNumbers]="true"></code></pre>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+
+
       </div>
     </div>
   </div>
-</div>
-
-
-<div *ngIf="cloneResults.referenceCode.type==inputType.PROJECT">
-  <p>this is where project results will go</p>
 </div>
 
 

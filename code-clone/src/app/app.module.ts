@@ -37,6 +37,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import {HighlightModule, HIGHLIGHT_OPTIONS, HighlightOptions} from "ngx-highlightjs";
 import {NgxFileDropModule} from "ngx-file-drop";
 import {HttpClientModule} from "@angular/common/http";
+import {MatTabsModule} from "@angular/material/tabs";
 // import 'highlightjs-line-numbers.js';
 // import hljs from 'highlight.js';
 
@@ -91,7 +92,8 @@ export function getHighlightLanguages() {
     MatRadioModule,
     HighlightModule,
     NgxFileDropModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTabsModule,
     // use forRoot() in main app module only.
   ],
   providers: [

@@ -58,19 +58,19 @@ export class UploadInputsComponent implements OnInit {
   }
 
   goToResults() {
-    console.log("codeInput");
-    console.log(this.codeInput.contents);
+    // console.log("codeInput");
+    // console.log(this.codeInput.contents);
 
     if(this.refInputType==InputType.PROJECT){
       this.codeReference = new Project(this.fileStrings);
     }
 
-    console.log("codeReference");
-    console.log(this.codeReference.contents);
+    // console.log("codeReference");
+    // console.log(this.codeReference.contents);
     this.cloneResults = new CloneResults(this.codeInput, this.codeReference);
 
-    console.log("~~~~~CLONE DATA~~~~~");
-    console.log(this.cloneResults.results);
+    // console.log("~~~~~CLONE DATA~~~~~");
+    // console.log(this.cloneResults.results);
     this.cloneResultsEmitter.emit(this.cloneResults);
 
 
