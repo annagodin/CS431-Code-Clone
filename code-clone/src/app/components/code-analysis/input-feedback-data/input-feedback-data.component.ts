@@ -55,6 +55,7 @@ export class InputFeedbackDataComponent implements OnInit {
   }
 
   nextStep() {
+    
     this.step++;
   }
 

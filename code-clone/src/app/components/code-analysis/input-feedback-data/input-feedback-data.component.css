@@ -27,3 +27,8 @@
 .example-full-width {
   width: 100%;
 }
+
+::ng-deep .mat-expansion-panel-header[aria-disabled=true] {
+  color: rgba(0,0,0,.87);
+}
+
