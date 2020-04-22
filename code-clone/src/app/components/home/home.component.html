@@ -14,7 +14,73 @@
   </div>
 </div>
 <div style="text-align: center;">
-  <a class="btn btn-lg btn-primary" href="/code-analysis">Get Started</a>
+  <a class="btn btn-lg btn-primary" href="/code-analysis">Get Started</a><br>
+
+  <div style="height:30px"></div>
+  <hr class="my-4">
+  <p class="lead">Clone Types:</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm"><span style="font-size: large" class="badge badge-pill badge-danger">Type 1</span>
+        <div class="divider"></div>
+        <mat-card class="mat">
+          <div class="example-ripple-container pad" matRipple>
+            <mat-card-content>
+              <p>
+                Identical code fragments except for variations in whitespace (may also be variations in layout) and comments.
+              </p>
+            </mat-card-content>
+          </div>
+        </mat-card>
+        <div class="divider"></div>
+      </div>
+      <div class="col-sm"><span style="font-size: large" class="badge badge-pill badge-warning">Type 2</span>
+        <div class="divider"></div>
+        <mat-card class="mat">
+          <div class="example-ripple-container pad" matRipple>
+            <mat-card-content>
+              <p>
+                Structurally/syntactically identical fragments except for variations in identifiers, literals, types, layout and comments.
+              </p>
+            </mat-card-content>
+          </div>
+        </mat-card>
+        <div class="divider"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm"><span style="font-size: large" class="badge badge-pill badge-primary">Type 3</span>
+        <div class="divider"></div>
+        <mat-card class="mat">
+          <div class="example-ripple-container pad" matRipple>
+            <mat-card-content>
+              <p>
+                Copied fragments with further modifications. Statements can be changed, added or removed in addition to variations in identifiers, literals, types, layout and comments.
+              </p>
+            </mat-card-content>
+          </div>
+        </mat-card>
+        <div class="divider"></div>
+      </div>
+      <div class="col-sm"><span style="font-size: large" class="badge badge-pill badge-success">Type 4</span>
+        <div class="divider"></div>
+        <mat-card class="mat">
+          <div class="example-ripple-container pad" matRipple>
+            <mat-card-content>
+              <p>
+                Two or more code fragments that perform the same computation but implemented through different syntactic variants.
+              </p>
+            </mat-card-content>
+          </div>
+        </mat-card>
+        <div class="divider"></div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+
+<!--[ngClass]="{'make-green': row.cloneType == 4, 'make-blue': row.cloneType==3, 'make-gold': row.cloneType==2, 'make-red': row.cloneType==1}"-->
 
 </body>

@@ -25,3 +25,38 @@
   /* reset the font property */
   font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.example-ripple-container {
+  cursor: pointer;
+  text-align: center;
+
+  width: available;
+  height:fit-content;
+  line-height: inherit;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+.mat{
+  padding: 0;
+  height: fit-content;
+  text-align: center;
+  text-align-all: center;
+  align-content: center;
+  /*max-width: 400px;*/
+}
+
+.divider{
+  height:10px;
+}
+
+.pad{
+  padding: 20px;
+}
