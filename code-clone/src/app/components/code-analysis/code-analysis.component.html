@@ -1,15 +1,6 @@
 <h1>Code Analysis</h1>
 <hr class="my-4">
 
-<!--<button (click)="togglePage(componentOrder.SELECT_INPUT_MODE)" class="btn btn-sm btn-primary">SELECT_INPUT_MODE</button>-->
-<!--&nbsp;-->
-<!--<button (click)="togglePage(componentOrder.UPLOAD_INPUTS)" class="btn btn-sm btn-primary">UPLOAD_INPUTS</button>-->
-<!--&nbsp;-->
-<!--<button (click)="togglePage(componentOrder.CLONE_RESULTS)" class="btn btn-sm btn-primary">CLONE_RESULTS</button>-->
-<!--&nbsp;-->
-<!--<button (click)="togglePage(componentOrder.INPUT_FEEDBACK_DATA)" class="btn btn-sm btn-primary">INPUT_FEEDBACK_DATA</button>-->
-
-
 
 <mat-button-toggle-group [value]="currentView" #group="matButtonToggleGroup" (change)="onValChange(group.value)">
   <mat-button-toggle  disabled="{{!pageAvailability[componentOrder.SELECT_INPUT_MODE]}}" value="SELECT_INPUT_MODE" (click)="togglePage(componentOrder.SELECT_INPUT_MODE, 'SELECT_INPUT_MODE' )"  aria-label="Text align left">

@@ -5,6 +5,7 @@ import {CloneResults} from "../../../shared/models/CloneResults";
 import {DiffEditorModel, NgxEditorModel} from "ngx-monaco-editor";
 import {MonacoEditorModule} from "ngx-monaco-editor";
 import {CloneFeedback} from "../../../shared/models/CloneFeedback";
+import {FormControl} from "@angular/forms";
 // https://github.com/MurhafSousli/ngx-highlightjs/blob/master/README_v2.md
 
 // https://stackoverflow.com/questions/59275532/monaco-deltadecorations-disappear-in-angular-7-when-model-changes
@@ -23,6 +24,8 @@ export class CloneResultsComponent implements OnInit {
   projectDisplayedColumns: string[] = ['cloneType', 'inputLocation', 'referenceFileName', 'referenceLocation', 'methodName'];
 
 
+  selected = new FormControl(0);
+
   inputEditorOptions = {theme: 'vs', language: 'java', readOnly: true};
   referenceEditorOptions = {theme: 'vs', language: 'java', readOnly: true};
   code_string_idk = "//the is a placeholder for code inputs\npublic class HelloWorld {\n" +
@@ -32,6 +35,19 @@ export class CloneResultsComponent implements OnInit {
     "}";
   position: any = "after";
 
+
+  goToFile(fileName){
+    let index = 0;
+    for(let i=0; i<this.cloneResults.referenceCode.contents.length; i++){
+      let file = this.cloneResults.referenceCode.contents[i].fileName;
+      if(file==fileName){
+        console.log(file + " = " + fileName);
+        index=i;
+        break;
+      }
+    }
+    this.selected.setValue(index);
+  }
 
   onInit(editor: any) {
     const t = editor.deltaDecorations([], [
