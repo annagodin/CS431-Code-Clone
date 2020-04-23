@@ -61,30 +61,29 @@ export class UploadInputsComponent implements OnInit {
   goToResults() {
 
 
-    for (let i = 0; i < this.fileStrings.length; i++) {
-      if(this.fileStrings[i].fileName.slice(this.fileStrings[i].fileName.length - 5).localeCompare(".java") != 0){
-        this.fileStrings.splice(i, 1);
-        i--;
-      }
-      else if(this.fileStrings[i].fileContents.trim().length === 0){
-        this.fileStrings.splice(i, 1);
-        i--;
-      }
-    }
 
-
-
-    if(this.fileStrings.length <= 0){
-      // no valid inputs
-      
-      this.snackBar.open('No valid input files found... Try again', '', {
-        duration:3000,
-      });
-
-      return;
-    }
 
     if(this.refInputType==InputType.PROJECT){
+      for (let i = 0; i < this.fileStrings.length; i++) {
+        if(this.fileStrings[i].fileName.slice(this.fileStrings[i].fileName.length - 5).localeCompare(".java") != 0){
+          this.fileStrings.splice(i, 1);
+          i--;
+        }
+        else if(this.fileStrings[i].fileContents.trim().length === 0){
+          this.fileStrings.splice(i, 1);
+          i--;
+        }
+      }
+
+      if(this.fileStrings.length <= 0){
+        // no valid inputs
+
+        this.snackBar.open('No valid input files found... Try again', '', {
+          duration:3000,
+        });
+        return;
+      }
+
       this.codeReference = new Project(this.fileStrings);
     }
 

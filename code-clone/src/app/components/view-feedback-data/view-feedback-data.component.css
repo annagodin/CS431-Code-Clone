@@ -16,3 +16,14 @@ table {
 .divider{
   height: 10px
 }
+
+.valid-input{
+  font-size: small;
+  color: green;
+}
+
+
+.invalid-input{
+  font-size: small;
+  color: red;
+}

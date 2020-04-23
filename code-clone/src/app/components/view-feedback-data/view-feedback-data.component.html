@@ -1,9 +1,24 @@
-<h1>View Feedback Data</h1>
+<div class="row">
+  <div class="col">
+    <h1>View Feedback Data</h1>
+  </div>
+  <div class="col">
+    <button [hidden]="isAdmin" data-toggle="modal" data-target="#exampleModal" style="float: right;" class="btn btn-light">Access Admin</button>
+    <button [hidden]="!isAdmin" (click)="logout()" style="float: right;" class="btn btn-light">Logout of Admin</button>
+
+  </div>
+</div>
+
 <hr class="my-4">
 
-<button (click)="addRandomDataPoint()" class="btn btn-primary">Add random data</button>
-&nbsp;
-<button (click)="deleteAll()" class="btn btn-danger">Delete Everything</button>
+<div *ngIf="isAdmin">
+  <button (click)="addRandomDataPoint()" class="btn btn-primary">Add random data</button>
+  &nbsp;
+  <button (click)="deleteAll()" class="btn btn-danger">Delete Everything</button>
+</div>
+
+
+
 <div class="divider"></div>
 
 <div class="example-container mat-elevation-z4">
@@ -27,6 +42,9 @@
       <td mat-cell *matCellDef="let element"> {{element.textFeedback}} </td>
     </ng-container>
 
+    <div *ngIf="isAdmin">
+
+    </div>
     <!-- Symbol Column -->
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
@@ -35,8 +53,8 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="getDisplayedColumns(); sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: getDisplayedColumns();"></tr>
   </table>
 
   <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
@@ -44,21 +62,41 @@
 
 
 
-<!--<table class="table">-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th scope="col">Clone Type</th>-->
-<!--    <th scope="col">Rating</th>-->
-<!--    <th scope="col">Text Feedback</th>-->
-<!--    <th scope="col">Action</th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--  <tr *ngFor="let data of cloneFeedbackList">-->
-<!--    <td>{{data.getCloneType()}}</td>-->
-<!--    <td>{{data.getRating()}}</td>-->
-<!--    <td>{{data.getTextFeedback()}}</td>-->
-<!--    <td><button (click)="delete(data)" class="btn btn-sm btn-outline-primary">delete this</button></td>-->
-<!--  </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
+
+<!-- Modal -->
+<div *ngIf="!isAdmin">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="font-size: large; font-weight: bolder" id="exampleModalLabel">Admin Authentication</h5>
+          <button type="button" (click)="clearPassword()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="lead small">Administrator privileges allow the user to manually add random data, delete specific rows, or delete all data in the database  </p>
+          <p>Please enter the administrator password:</p>
+          <mat-form-field>
+<!--            <mat-label>password</mat-label>-->
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="adminPasswordInput">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="submitted && !validInput">invalid password</mat-error>
+          </mat-form-field> &nbsp;
+          <button (click)="authenticate()" class="btn btn-light btn-sm">Authenticate</button>
+          <br>
+          <div *ngIf="validInput" class="valid-input">Successfully authenticated. Please click Login.</div>
+          <div *ngIf="!validInput && submitted" class="invalid-input">Invalid password. Please try again.</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="clearPassword()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button [hidden]="!validInput" (click)="login()" type="button" class="btn btn-primary" data-dismiss="modal">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

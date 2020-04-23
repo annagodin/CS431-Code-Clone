@@ -15,58 +15,81 @@ export class ViewFeedbackDataComponent implements OnInit {
   dataSource: MatTableDataSource<CloneFeedbackInterface>;
   ELEMENT_DATA: CloneFeedbackInterface[] = [];
 
-  displayedColumns: string[] = ['cloneType', 'rating', 'textFeedback', "action"];
+  displayedColumns: string[] = ['cloneType', 'rating', 'textFeedback'];
+  adminColumns: string[] = ['cloneType', 'rating', 'textFeedback', 'action'];
+
+  columnDefinitions: any[] = [
+    'cloneType',
+    'rating',
+    'textFeedback',
+    { def: 'action', showNotAdmin: false },
+  ];
+
+
   cloneFeedbackList: CloneFeedback[];
   // dataSource: MatTableDataSource<CloneFeedback>;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
+  isAdmin = false;
+  hide = true;
+  adminPasswordInput = "";
+  validInput = false;
+  submitted = false;
 
-  constructor(private databaseService: DatabaseService) { }
+  constructor(private databaseService: DatabaseService) {
+  }
 
   ngOnInit() {
     this.databaseService.getData().subscribe(data => {
       this.cloneFeedbackList = this.convertData(data);
       this.printData();
     });
-    // this.dataSource = new MatTableDataSource<CloneFeedbackInterface>(this.ELEMENT_DATA);
-    // this.dataSource.paginator = this.paginator;
-    // console.log(this.ELEMENT_DATA);
-
-
-
   }
 
-  addRandomDataPoint(){
-    let randRank = Math.floor(Math.random() * Math.floor(5))+1;
-    let randCloneType = Math.floor(Math.random() * Math.floor(4))+1;
+
+  getDisplayedColumns(): string[] {
+    // const isMobile = this.currentDisplay === 'mobile';
+    // return this.columnDefinitions
+    //   .filter(cd => this.isAdmin)
+    //   .map(cd => cd.def);
+    //
+    if(!this.isAdmin){
+      return this.displayedColumns;
+    } else{
+      return this.adminColumns;
+    }
+  }
+
+  addRandomDataPoint() {
+    let randRank = Math.floor(Math.random() * Math.floor(5)) + 1;
+    let randCloneType = Math.floor(Math.random() * Math.floor(4)) + 1;
     let randomText = ["hey", "bye", "testing this stuff", "idk"];
     let randTextOutput = Math.floor(Math.random() * Math.floor(5));
     console.log("randTextOutput: " + randTextOutput);
     let fbd;
-    if(randTextOutput==4){
-      fbd = new CloneFeedback(randRank,randCloneType,null);
-    }
-    else {
-      fbd = new CloneFeedback(randRank,randCloneType,randomText[randTextOutput]);
+    if (randTextOutput == 4) {
+      fbd = new CloneFeedback(randRank, randCloneType, null);
+    } else {
+      fbd = new CloneFeedback(randRank, randCloneType, randomText[randTextOutput]);
     }
     fbd = this.databaseService.createDataPoint(fbd);
   }
 
-  printData(){
+  printData() {
     console.log("heyeyeyeyey heres your data");
     console.log(this.cloneFeedbackList);
     console.log(this.ELEMENT_DATA);
   }
 
-  convertData(data){
-    let feedbackData:CloneFeedback[]=[];
-    this.ELEMENT_DATA=[];
-    for (const i of data){
-      let fb = new CloneFeedback(i["rating"],i["cloneType"],i["textFeedback"]);
+  convertData(data) {
+    let feedbackData: CloneFeedback[] = [];
+    this.ELEMENT_DATA = [];
+    for (const i of data) {
+      let fb = new CloneFeedback(i["rating"], i["cloneType"], i["textFeedback"]);
       fb.id = i["id"];
       feedbackData.push(fb);
 
-      let row = {cloneType: fb.cloneType, rating: fb.rating, textFeedback: fb.textFeedback, id: fb.id };
+      let row = {cloneType: fb.cloneType, rating: fb.rating, textFeedback: fb.textFeedback, id: fb.id};
       this.ELEMENT_DATA.push(row);
     }
     this.dataSource = new MatTableDataSource<CloneFeedbackInterface>(this.ELEMENT_DATA);
@@ -74,7 +97,7 @@ export class ViewFeedbackDataComponent implements OnInit {
     return feedbackData;
   }
 
-  create(cloneFeedback: CloneFeedback){
+  create(cloneFeedback: CloneFeedback) {
     this.databaseService.createDataPoint(cloneFeedback);
   }
 
@@ -86,14 +109,36 @@ export class ViewFeedbackDataComponent implements OnInit {
     this.databaseService.deleteDataPoint(id);
   }
 
-  deleteAll(){
+  deleteAll() {
     this.databaseService.deleteEverything();
   }
 
 
+  authenticate() {
+    this.submitted = true;
+    if (this.adminPasswordInput == "admin") { //all good
+      this.validInput = true;
+    } else { //not good
+      this.validInput = false;
+    }
+  }
+
+  login() {
+    this.isAdmin = true;
+  }
+
+
+  clearPassword() {
+    this.adminPasswordInput = "";
+  }
+
+  logout() {
+    this.isAdmin = false;
+    this.submitted = false;
+    this.validInput = false;
+    this.adminPasswordInput = '';
+  }
 }
-
-
 
 
 export interface CloneFeedbackInterface {
@@ -103,25 +148,3 @@ export interface CloneFeedbackInterface {
   id: string;
 }
 
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-//   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-//   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-//   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-//   {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-//   {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-//   {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-//   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-//   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-//   {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
-//   {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
-//   {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
-//   {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
-//   {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
-//   {position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S'},
-//   {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
-//   {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
-//   {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
-//   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
-// ];

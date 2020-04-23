@@ -42,6 +42,7 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatCardModule} from "@angular/material/card";
 import {MatRippleModule} from "@angular/material/core";
 import  {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from "@angular/material/dialog";
 // import 'highlightjs-line-numbers.js';
 // import hljs from 'highlight.js';
 
@@ -103,6 +104,7 @@ export function getHighlightLanguages() {
     MatCardModule,
     MatRippleModule,
     MatSnackBarModule,
+    MatDialogModule,
     // use forRoot() in main app module only.
   ],
   providers: [

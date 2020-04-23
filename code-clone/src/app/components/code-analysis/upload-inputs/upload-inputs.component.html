@@ -19,7 +19,7 @@
       </div>
       <div class="col-sm">
         <p class="lead">Reference project
-          <mat-icon matTooltip="Only Java files will be parsed and evaluated. Other files will be ignored."
+          <mat-icon style="cursor: default" matTooltip="Only Java files will be parsed and evaluated. Other files will be ignored."
                     [matTooltipPosition]="position">info
           </mat-icon>
         </p>
@@ -37,7 +37,7 @@
               <button type="button" class="btn btn-sm btn-primary" (click)="openFileSelector()">Browse Files</button>
             </ng-template>
           </ngx-file-drop>
-          
+
           <div class="divider"></div>
           <div *ngIf="filesUploaded">
             <strong>Uploaded Files:</strong>
@@ -48,7 +48,7 @@
                 <tr *ngFor="let item of fileStrings; let i=index">
                   <td>{{ item.fileName }}</td>
                 </tr>
-                </tbody> 
+                </tbody>
               </table>
             </div>
           </div>
