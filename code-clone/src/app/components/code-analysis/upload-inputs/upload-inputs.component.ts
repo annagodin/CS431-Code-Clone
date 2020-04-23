@@ -5,6 +5,7 @@ import {Snippet} from "../../../shared/models/file-inputs/Snippet";
 import {CloneResults} from "../../../shared/models/CloneResults";
 import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'ngx-file-drop';
 import {Project} from "../../../shared/models/file-inputs/Project";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface FileData {
   fileName: string;
@@ -45,7 +46,7 @@ export class UploadInputsComponent implements OnInit {
   fileStrings: FileData[] = [];
   filesUploaded=false;
 
-  constructor() {
+  constructor(private snackBar: MatSnackBar) {
     this.codeInput = new Snippet(null, this.placeholderCode);
     this.codeReference = new Snippet(null, this.placeholderCode);
   }
@@ -60,6 +61,29 @@ export class UploadInputsComponent implements OnInit {
   goToResults() {
     // console.log("codeInput");
     // console.log(this.codeInput.contents);
+
+    for (let i = 0; i < this.fileStrings.length; i++) {
+      if(this.fileStrings[i].fileName.slice(this.fileStrings[i].fileName.length - 5).localeCompare(".java") != 0){
+        this.fileStrings.splice(i, 1);
+        i--;
+      }
+      else if(this.fileStrings[i].fileContents.trim().length === 0){
+        this.fileStrings.splice(i, 1);
+        i--;
+      }
+    }
+
+
+
+    if(this.fileStrings.length <= 0){
+      // no valid inputs
+      
+      this.snackBar.open('No valid input files found... Try again', '', {
+        duration:3000,
+      });
+
+      return;
+    }
 
     if(this.refInputType==InputType.PROJECT){
       this.codeReference = new Project(this.fileStrings);
