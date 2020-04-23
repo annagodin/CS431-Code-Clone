@@ -37,21 +37,22 @@
               <button type="button" class="btn btn-sm btn-primary" (click)="openFileSelector()">Browse Files</button>
             </ng-template>
           </ngx-file-drop>
-
+          
           <div class="divider"></div>
           <div *ngIf="filesUploaded">
             <strong>Uploaded Files:</strong>
             <div class="divider"></div>
-            <div class="upload-table table-responsive mat-elevation-z1">
+            <div class="upload-table table-responsive mat-elevation-z1" *ngIf="fileStrings.length>0">
               <table class="table table-fixed">
                 <tbody class="upload-name-style">
                 <tr *ngFor="let item of fileStrings; let i=index">
                   <td>{{ item.fileName }}</td>
                 </tr>
-                </tbody>
+                </tbody> 
               </table>
             </div>
           </div>
+          <button type ="submit" class="btn btn-dark" (click)="deleteAllFiles()">Delete Files</button>
 
 <!--          <div *ngIf="filesUploaded">-->
 <!--            <div class="example-container mat-elevation-z1">-->
@@ -112,5 +113,6 @@
 <div class="divider"></div>
 
 <button type="submit" class="btn btn-dark" (click)="goToResults()">Get Results</button>
+
 &nbsp;
 <!--<button class="btn btn-light" (click)="printFileList()">Print Files</button>-->
