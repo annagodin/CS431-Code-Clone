@@ -2,10 +2,10 @@
 <div class="divider"></div>
 
 <div *ngIf="refInputType==inputType.PROJECT">
-  <p class="lead">Upload an input code snippet and a project from disk</p>
-  <div class="lead small">The input snippet will be used to search through the reference project that is uploaded from
-    disk. <br> It will determine
-    if the input snippet is included anywhere in reference as a clone type 1, 2, 3, or 4
+  <p style="text-align: center" class="lead ">Upload an input code snippet and a project from disk</p>
+  <div style="text-align: center" class="lead small ">The input snippet will be used to search through the reference project that is uploaded
+    from disk. <br>
+    It will determine if the input snippet is included anywhere in reference as a clone type 1, 2, 3, or 4
   </div>
 
   <div style="height: 10px"></div>
@@ -19,7 +19,8 @@
       </div>
       <div class="col-sm">
         <p class="lead">Reference project
-          <mat-icon style="cursor: default" matTooltip="Only Java files will be parsed and evaluated. Other files will be ignored."
+          <mat-icon style="cursor: default"
+                    matTooltip="Only Java files will be parsed and evaluated. Other files will be ignored."
                     [matTooltipPosition]="position">info
           </mat-icon>
         </p>
@@ -52,23 +53,22 @@
               </table>
             </div>
           </div>
-          <button type ="submit" class="btn btn-dark" (click)="deleteAllFiles()">Delete Files</button>
+          <button type="submit" class="btn btn-dark" (click)="deleteAllFiles()">Delete Files</button>
 
-<!--          <div *ngIf="filesUploaded">-->
-<!--            <div class="example-container mat-elevation-z1">-->
-<!--              <table mat-table [dataSource]="fileStrings">-->
-<!--                <ng-container matColumnDef="fileName">-->
-<!--                  <th mat-header-cell *matHeaderCellDef>Uploaded Files</th>-->
-<!--                  <td mat-cell *matCellDef="let element"> {{element.fileName}} </td>-->
-<!--                </ng-container>-->
-<!--                &lt;!&ndash;                        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>&ndash;&gt;-->
-<!--                &lt;!&ndash;                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>&ndash;&gt;-->
-<!--                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>-->
-<!--                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
-<!--              </table>-->
-<!--            </div>-->
-<!--          </div>-->
-
+          <!--          <div *ngIf="filesUploaded">-->
+          <!--            <div class="example-container mat-elevation-z1">-->
+          <!--              <table mat-table [dataSource]="fileStrings">-->
+          <!--                <ng-container matColumnDef="fileName">-->
+          <!--                  <th mat-header-cell *matHeaderCellDef>Uploaded Files</th>-->
+          <!--                  <td mat-cell *matCellDef="let element"> {{element.fileName}} </td>-->
+          <!--                </ng-container>-->
+          <!--                &lt;!&ndash;                        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>&ndash;&gt;-->
+          <!--                &lt;!&ndash;                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>&ndash;&gt;-->
+          <!--                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>-->
+          <!--                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+          <!--              </table>-->
+          <!--            </div>-->
+          <!--          </div>-->
 
 
         </div>
@@ -85,10 +85,10 @@
 
 
 <div *ngIf="refInputType==inputType.SNIPPET">
-  <div class="lead"><b>Upload two snippets:</b></div>
-
-  <div class="lead small">The input snippet will be used to search through the reference snippet. <br> It will determine
-    if the input snippet is included anywhere in reference as a clone type 1, 2, 3, or 4
+  <div style="text-align: center" class=" lead"><b>Upload two snippets:</b></div>
+  <div style="text-align: center" class=" lead small ">The input snippet will be used to search through the reference
+    snippet.
+    <br> It will determine if the input snippet is included anywhere in reference as a clone type 1, 2, 3, or 4
   </div>
 
   <div style="height: 10px"></div>
@@ -112,7 +112,9 @@
 
 <div class="divider"></div>
 
-<button type="submit" class="btn btn-dark" (click)="goToResults()">Get Results</button>
+<div style="text-align: center">
+  <button type="submit" class="btn btn-dark" (click)="goToResults()">Get Results</button>
+</div>
 
 &nbsp;
 <!--<button class="btn btn-light" (click)="printFileList()">Print Files</button>-->

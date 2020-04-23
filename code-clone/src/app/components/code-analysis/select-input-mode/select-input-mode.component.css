@@ -2,3 +2,9 @@
 .divider{
   height: 10px
 }
+
+.center{
+  text-align: center;
+  justify-content: center;
+  text-align-all: center;
+}

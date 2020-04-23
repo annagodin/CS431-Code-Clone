@@ -1,29 +1,28 @@
 <div class="divider"></div>
 
-<div class="lead">Please select a mode of input for the reference code</div>
-<div class="lead small">Note: Input code may only be a pasted code snippet</div>
+<div class="lead center">Please select a mode of input for the reference code</div>
+<div class="lead small center">Note: Input code may only be a pasted code snippet</div>
 
 <div class="divider"></div>
+<div style="display: flex; justify-content: center;">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <mat-form-field>
+      <mat-label>Reference input type</mat-label>
+      <mat-select #refInputSelect required [formControl]="refInputType" [(value)]="referenceCodeType">
+        <mat-option value="{{inputType.SNIPPET}}">Snippet</mat-option>
+        <mat-option value="{{inputType.PROJECT}}">Project</mat-option>
+      </mat-select>
+      <mat-error *ngIf="refInputSelect.errorState">
+        Required field
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-  <mat-form-field>
-    <mat-label>Reference input type</mat-label>
-    <mat-select #refInputSelect required  [formControl]="refInputType" [(value)]="referenceCodeType">
-      <mat-option value="{{inputType.SNIPPET}}">Snippet</mat-option>
-      <mat-option value="{{inputType.PROJECT}}">Project</mat-option>
-    </mat-select>
-    <mat-error *ngIf="refInputSelect.errorState">
-      Required field
-    </mat-error>
-  </mat-form-field>
-
-
-
-  <div class="divider"></div>
-  &nbsp;
+<div class="divider"></div>
+<div style="text-align: center">
   <button type="submit" class="btn btn-dark" (click)="goToUploadInputs()">Upload Inputs</button>
-
-</form>
+</div>
 
 
 

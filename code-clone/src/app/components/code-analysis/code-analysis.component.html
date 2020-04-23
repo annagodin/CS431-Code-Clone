@@ -1,21 +1,25 @@
 <h1>Code Analysis</h1>
 <hr class="my-4">
 
+<div style="display: flex; justify-content: center;">
 
-<mat-button-toggle-group [value]="currentView" #group="matButtonToggleGroup" (change)="onValChange(group.value)">
-  <mat-button-toggle  disabled="{{!pageAvailability[componentOrder.SELECT_INPUT_MODE]}}" value="SELECT_INPUT_MODE" (click)="togglePage(componentOrder.SELECT_INPUT_MODE, 'SELECT_INPUT_MODE' )"  aria-label="Text align left">
-    SELECT INPUT MODE
-  </mat-button-toggle>
-  <mat-button-toggle disabled="{{!pageAvailability[componentOrder.UPLOAD_INPUTS]}}" value="UPLOAD_INPUTS" (click)="togglePage(componentOrder.UPLOAD_INPUTS, 'UPLOAD_INPUTS')"   aria-label="Text align center">
-    UPLOAD INPUTS
-  </mat-button-toggle>
-  <mat-button-toggle disabled="{{!pageAvailability[componentOrder.CLONE_RESULTS]}}" value="CLONE_RESULTS"  (click)="togglePage(componentOrder.CLONE_RESULTS, 'CLONE_RESULTS')"  aria-label="Text align right">
-    CLONE RESULTS
-  </mat-button-toggle>
-  <mat-button-toggle disabled="{{!pageAvailability[componentOrder.INPUT_FEEDBACK_DATA]}}" [hidden]="!giveFeedback" value="INPUT_FEEDBACK_DATA"  (click)="togglePage(componentOrder.INPUT_FEEDBACK_DATA, 'INPUT_FEEDBACK_DATA')"  aria-label="Text align justify">
-    INPUT FEEDBACK DATA
-  </mat-button-toggle>
-</mat-button-toggle-group>
+  <mat-button-toggle-group [value]="currentView" #group="matButtonToggleGroup" (change)="onValChange(group.value)">
+    <mat-button-toggle  disabled="{{!pageAvailability[componentOrder.SELECT_INPUT_MODE]}}" value="SELECT_INPUT_MODE" (click)="togglePage(componentOrder.SELECT_INPUT_MODE, 'SELECT_INPUT_MODE' )"  aria-label="Text align left">
+      SELECT INPUT MODE
+    </mat-button-toggle>
+    <mat-button-toggle disabled="{{!pageAvailability[componentOrder.UPLOAD_INPUTS]}}" value="UPLOAD_INPUTS" (click)="togglePage(componentOrder.UPLOAD_INPUTS, 'UPLOAD_INPUTS')"   aria-label="Text align center">
+      UPLOAD INPUTS
+    </mat-button-toggle>
+    <mat-button-toggle disabled="{{!pageAvailability[componentOrder.CLONE_RESULTS]}}" value="CLONE_RESULTS"  (click)="togglePage(componentOrder.CLONE_RESULTS, 'CLONE_RESULTS')"  aria-label="Text align right">
+      CLONE RESULTS
+    </mat-button-toggle>
+    <mat-button-toggle disabled="{{!pageAvailability[componentOrder.INPUT_FEEDBACK_DATA]}}" [hidden]="!giveFeedback" value="INPUT_FEEDBACK_DATA"  (click)="togglePage(componentOrder.INPUT_FEEDBACK_DATA, 'INPUT_FEEDBACK_DATA')"  aria-label="Text align justify">
+      INPUT FEEDBACK DATA
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+
+</div>
+
 
 
 <app-select-input-mode (inputTypeEmitter)="getInputType($event)" [hidden]="!pageView[componentOrder.SELECT_INPUT_MODE]"></app-select-input-mode>
