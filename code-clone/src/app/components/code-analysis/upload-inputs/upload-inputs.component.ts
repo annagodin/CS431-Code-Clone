@@ -59,8 +59,7 @@ export class UploadInputsComponent implements OnInit {
   }
 
   goToResults() {
-    // console.log("codeInput");
-    // console.log(this.codeInput.contents);
+
 
     for (let i = 0; i < this.fileStrings.length; i++) {
       if(this.fileStrings[i].fileName.slice(this.fileStrings[i].fileName.length - 5).localeCompare(".java") != 0){
@@ -89,15 +88,10 @@ export class UploadInputsComponent implements OnInit {
       this.codeReference = new Project(this.fileStrings);
     }
 
-    // console.log("codeReference");
-    // console.log(this.codeReference.contents);
     this.cloneResults = new CloneResults(this.codeInput, this.codeReference);
 
-    // console.log("~~~~~CLONE DATA~~~~~");
-    // console.log(this.cloneResults.results);
+
     this.cloneResultsEmitter.emit(this.cloneResults);
-
-
 
 
   }

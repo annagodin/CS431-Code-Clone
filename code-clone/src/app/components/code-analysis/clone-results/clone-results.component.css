@@ -35,3 +35,14 @@ table {
 .make-red{
   background-color: pink;
 }
+
+.click-me{
+  cursor: pointer;
+  /*border-color: #c9c9c9;*/
+  border: 1.5px solid #3b3b3b;
+  /*background-color: #e9e9e9;*/
+  /*opacity: 50%;*/
+  background-color: inherit;
+  border-radius: 5px;
+  padding: 5px;
+}

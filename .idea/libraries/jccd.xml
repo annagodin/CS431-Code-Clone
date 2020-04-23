@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jccd">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../jccd-1.0.6/src" />
+    </SOURCES>
+  </library>
+</component>

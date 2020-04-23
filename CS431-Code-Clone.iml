@@ -9,5 +9,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="iconify" level="application" />
+    <orderEntry type="library" name="jccd" level="project" />
+    <orderEntry type="library" name="jccd" level="application" />
   </component>
 </module>
