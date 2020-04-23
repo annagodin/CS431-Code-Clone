@@ -96,6 +96,13 @@ export class UploadInputsComponent implements OnInit {
 
   }
 
+  deleteAllFiles() {
+
+    for (let i = 0; i < this.fileStrings.length; i++) {
+      this.fileStrings.splice(i, 1);
+      i--;
+    }
+  }
 
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
