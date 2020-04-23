@@ -68,6 +68,7 @@ export function getHighlightLanguages() {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     NgbModule,

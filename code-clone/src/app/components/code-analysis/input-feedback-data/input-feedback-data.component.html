@@ -7,7 +7,7 @@
   <mat-accordion class="example-headers-align" >
 
     <mat-expansion-panel *ngFor="let result of cloneResults.results; let i = index" [expanded]="step === i" (opened)="setStep(i)" [disabled]="true" >
-      <mat-expansion-panel-header style="background: #d7d7d7"> 
+      <mat-expansion-panel-header style="background: #d7d7d7">
         <mat-panel-title>
           {{"Clone type: " + result.cloneType}}
         </mat-panel-title>
@@ -17,7 +17,7 @@
       </mat-expansion-panel-header>
       <div class="divider"></div>
 
-      <label id="example-radio-group-label"><span style="color:red">*</span>Do you agree with the output of the clone algorithm?</label>
+      <label id="example-radio-group-label">Do you agree with the output of the clone algorithm?&nbsp;<span style="color:red">*</span></label>
       <br>
       <mat-radio-group required [(ngModel)]="cloneResults.results[i].feedback.rating" aria-label="Select an option"
                        aria-labelledby="example-radio-group-label">

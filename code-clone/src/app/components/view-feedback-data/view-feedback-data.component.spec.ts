@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewFeedbackDataComponent } from './view-feedback-data.component';
+import {AngularFireModule} from "@angular/fire";
+import {environment} from "../../../environments/environment";
+import {AngularFireDatabaseModule} from "@angular/fire/database";
 
 describe('ViewFeedbackDataComponent', () => {
   let component: ViewFeedbackDataComponent;
@@ -8,7 +11,12 @@ describe('ViewFeedbackDataComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewFeedbackDataComponent ]
+      declarations: [ ViewFeedbackDataComponent ],
+      imports: [
+        AngularFireModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule
+      ]
     })
     .compileComponents();
   }));
