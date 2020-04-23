@@ -79,20 +79,20 @@
           <p>Please enter the administrator password:</p>
           <mat-form-field>
 <!--            <mat-label>password</mat-label>-->
-            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="adminPasswordInput">
+            <input matInput (input)="authenticate()" (keydown)="handleEnterPressed($event)" [type]="hide ? 'password' : 'text'" [(ngModel)]="adminPasswordInput">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-error *ngIf="submitted && !validInput">invalid password</mat-error>
           </mat-form-field> &nbsp;
-          <button (click)="authenticate()" class="btn btn-light btn-sm">Authenticate</button>
+<!--          <button (click)="authenticate()" class="btn btn-light btn-sm">Authenticate</button>-->
           <br>
-          <div *ngIf="validInput" class="valid-input">Successfully authenticated. Please click Login.</div>
-          <div *ngIf="!validInput && submitted" class="invalid-input">Invalid password. Please try again.</div>
+<!--          <div *ngIf="validInput" class="valid-input">Successfully authenticated. Please click Login.</div>-->
+          <div *ngIf="isError" class="invalid-input">Invalid password. Please try again.</div>
         </div>
         <div class="modal-footer">
           <button type="button" (click)="clearPassword()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button [hidden]="!validInput" (click)="login()" type="button" class="btn btn-primary" data-dismiss="modal">Login</button>
+          <button [hidden]="validInput" (click)="displayError()" type="button" class="btn btn-primary"  #displayErrorButton>Login</button>
+          <button [hidden]="!validInput" (click)="login()" type="button" class="btn btn-primary" #closeAdminModal data-dismiss="modal">Login</button>
         </div>
       </div>
     </div>

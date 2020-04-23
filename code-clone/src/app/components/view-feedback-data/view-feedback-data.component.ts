@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {CloneFeedback} from "../../shared/models/CloneFeedback";
 import {DatabaseService} from "../../shared/services/database/database.service";
 import {MatTableDataSource} from "@angular/material/table";
@@ -11,6 +11,11 @@ import {newArray} from "@angular/compiler/src/util";
   styleUrls: ['./view-feedback-data.component.css']
 })
 export class ViewFeedbackDataComponent implements OnInit {
+
+  @ViewChild('closeAdminModal') closeAdminModal: ElementRef;
+  @ViewChild('displayErrorButton') displayErrorButton: ElementRef;
+
+
   // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource: MatTableDataSource<CloneFeedbackInterface>;
   ELEMENT_DATA: CloneFeedbackInterface[] = [];
@@ -22,7 +27,7 @@ export class ViewFeedbackDataComponent implements OnInit {
     'cloneType',
     'rating',
     'textFeedback',
-    { def: 'action', showNotAdmin: false },
+    {def: 'action', showNotAdmin: false},
   ];
 
 
@@ -35,6 +40,7 @@ export class ViewFeedbackDataComponent implements OnInit {
   adminPasswordInput = "";
   validInput = false;
   submitted = false;
+  isError = false;
 
   constructor(private databaseService: DatabaseService) {
   }
@@ -53,9 +59,9 @@ export class ViewFeedbackDataComponent implements OnInit {
     //   .filter(cd => this.isAdmin)
     //   .map(cd => cd.def);
     //
-    if(!this.isAdmin){
+    if (!this.isAdmin) {
       return this.displayedColumns;
-    } else{
+    } else {
       return this.adminColumns;
     }
   }
@@ -115,6 +121,7 @@ export class ViewFeedbackDataComponent implements OnInit {
 
 
   authenticate() {
+    // console.log("authenticating");
     this.submitted = true;
     if (this.adminPasswordInput == "admin") { //all good
       this.validInput = true;
@@ -124,12 +131,16 @@ export class ViewFeedbackDataComponent implements OnInit {
   }
 
   login() {
-    this.isAdmin = true;
+    if(this.validInput){
+      this.isAdmin = true;
+      this.isError = false;
+    }
   }
 
 
   clearPassword() {
     this.adminPasswordInput = "";
+    this.isError = false;
   }
 
   logout() {
@@ -137,7 +148,24 @@ export class ViewFeedbackDataComponent implements OnInit {
     this.submitted = false;
     this.validInput = false;
     this.adminPasswordInput = '';
+    this.isError = false;
   }
+
+  displayError() {
+    this.isError = true;
+  }
+
+  handleEnterPressed(event) {
+    if(event.keyCode == 13) {
+      // console.log('you just clicked enter');
+      if(this.validInput){
+        this.closeAdminModal.nativeElement.click();
+      } else {
+        this.displayErrorButton.nativeElement.click();
+      }
+    }
+  }
+
 }
 
 
