@@ -38,10 +38,15 @@
               <button type="button" class="btn btn-sm btn-primary" (click)="openFileSelector()">Browse Files</button>
             </ng-template>
           </ngx-file-drop>
+          
 
           <div class="divider"></div>
           <div *ngIf="filesUploaded">
-            <strong>Uploaded Files:</strong>
+            <strong *ngIf="fileStrings.length>0"> 
+              <button type="button" class="close" aria-label="Close" (click)="deleteAllFiles()" matTooltip="Delete all uploaded files" [matTooltipPosition]="position">
+                <span aria-hidden="true">&times;</span>        
+              </button>Uploaded Files:</strong>
+            
             <div class="divider"></div>
             <div class="upload-table table-responsive mat-elevation-z1" *ngIf="fileStrings.length>0">
               <table class="table table-fixed">
@@ -53,7 +58,6 @@
               </table>
             </div>
           </div>
-          <button type="submit" class="btn btn-dark" (click)="deleteAllFiles()">Delete Files</button>
 
           <!--          <div *ngIf="filesUploaded">-->
           <!--            <div class="example-container mat-elevation-z1">-->
