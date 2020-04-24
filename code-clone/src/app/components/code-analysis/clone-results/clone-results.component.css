@@ -20,11 +20,11 @@ table {
 }
 
 .make-gold {
-  background-color: lightyellow;
+  background-color: #ffffe0;
 }
 
 .make-blue{
-  background-color: lightsteelblue;
+  background-color: #b0c4de;
 }
 
 .make-green{
@@ -33,7 +33,7 @@ table {
 
 
 .make-red{
-  background-color: pink;
+  background-color: #ffc0cb;
 }
 
 .click-me{

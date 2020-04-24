@@ -104,7 +104,7 @@ export function getHighlightLanguages() {
     MatCardModule,
     MatRippleModule,
     MatSnackBarModule,
-    MatDialogModule,
+    MatDialogModule
     // use forRoot() in main app module only.
   ],
   providers: [

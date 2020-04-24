@@ -15,7 +15,16 @@ export class ViewStatisticsComponent implements OnInit {
 
 
   constructor(private databaseService: DatabaseService) {
+    CanvasJS.addColorSet("customColorSet1", [
+      "#4661EE",
+      "#EC5657",
+      "#1BCDD1",
+      "#4bbb69"
+    ]);
+
   }
+
+
 
 
   ngOnInit(): void {
@@ -27,14 +36,13 @@ export class ViewStatisticsComponent implements OnInit {
     });
 
 
-
-
   }
 
 
-  getBarChart(){
+  getBarChart() {
     let chart = new CanvasJS.Chart("chartBarContainer", {
       theme: "light2",
+      colorSet: "customColorSet1",
       animationEnabled: true,
       exportEnabled: true,
       title: {
@@ -50,12 +58,12 @@ export class ViewStatisticsComponent implements OnInit {
     chart.render();
   }
 
-  getPieChart(){
+  getPieChart() {
     let chart = new CanvasJS.Chart("chartPieContainer", {
       theme: "light2",
       animationEnabled: true,
       exportEnabled: true,
-      title:{
+      title: {
         text: "Percentage of all agree/disagree/neither cases"
       },
       data: [{
@@ -70,10 +78,10 @@ export class ViewStatisticsComponent implements OnInit {
     chart.render();
   }
 
-  convertData(data){
-    let feedbackData:CloneFeedback[]=[];
-    for (const i of data){
-      let fb = new CloneFeedback(i["rating"],i["cloneType"],i["textFeedback"]);
+  convertData(data) {
+    let feedbackData: CloneFeedback[] = [];
+    for (const i of data) {
+      let fb = new CloneFeedback(i["rating"], i["cloneType"], i["textFeedback"]);
       fb.id = i["id"];
       feedbackData.push(fb);
 
@@ -91,15 +99,15 @@ export class ViewStatisticsComponent implements OnInit {
         pieData[0] += 1;
       } else if (i.rating == 3) { //neither agree nor disagree = 3
         pieData[1] += 1;
-      } else if (i.rating==1 || i.rating==2) {
+      } else if (i.rating == 1 || i.rating == 2) {
         pieData[2] += 1; //disagree = 1,2
       }
     }
 
-    let pieChart= [{
-        name: "Agree",
-        y: pieData[0]
-      },
+    let pieChart = [{
+      name: "Agree",
+      y: pieData[0]
+    },
       {
         name: "Neither",
         y: pieData[1]
@@ -114,26 +122,26 @@ export class ViewStatisticsComponent implements OnInit {
 
   }
 
-  getBarChartData(data: CloneFeedback[]){
-    let accuracyRates=[0,0,0,0];
-    let totalCloneCounts = [0,0,0,0];
+  getBarChartData(data: CloneFeedback[]) {
+    let accuracyRates = [0, 0, 0, 0];
+    let totalCloneCounts = [0, 0, 0, 0];
     for (const i of data) {
 
 
-      if(i.rating>=4){
-        accuracyRates[i.cloneType-1]+=1;
+      if (i.rating >= 4) {
+        accuracyRates[i.cloneType - 1] += 1;
       }
-      totalCloneCounts[i.cloneType-1]+=1;
+      totalCloneCounts[i.cloneType - 1] += 1;
     }
 
-    let percentages=[0,0,0,0];
-    for (let x=0; x<4; x++){
-      if(accuracyRates[x]!=0){
-        percentages[x]=Math.round((accuracyRates[x]/totalCloneCounts[x]*100) * 100) / 100;
+    let percentages = [0, 0, 0, 0];
+    for (let x = 0; x < 4; x++) {
+      if (accuracyRates[x] != 0) {
+        percentages[x] = Math.round((accuracyRates[x] / totalCloneCounts[x] * 100) * 100) / 100;
       }
     }
 
-    let barChart= [{
+    let barChart = [{
       label: "Type 1",
       y: percentages[0]
     },
@@ -144,7 +152,7 @@ export class ViewStatisticsComponent implements OnInit {
       {
         label: "Type 3",
         y: percentages[2]
-      },{
+      }, {
         label: "Type 4",
         y: percentages[3]
       }];
