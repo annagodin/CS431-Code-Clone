@@ -13,8 +13,8 @@ import org.eposoft.jccd.preprocessors.java.*;
 public class TestingJCCD {
     public static void main(String[] args) {
 
-        String inputFileName = "src/test/TestType1Code2.java";
-        String referenceFileName = "src/test/TestType1Code1.java";
+        String inputFileName = "src/test/Input_Type_1_2.java";
+        String referenceFileName = "src/test/Reference_Type_1_2.java";
 
         APipeline detector = new ASTDetector();
         JCCDFile[] files = {
@@ -23,7 +23,7 @@ public class TestingJCCD {
         };
 
         detector.setSourceFiles(files);
-        processType3(detector, inputFileName, referenceFileName);
+        processType2(detector, inputFileName, referenceFileName);
 
 
     }

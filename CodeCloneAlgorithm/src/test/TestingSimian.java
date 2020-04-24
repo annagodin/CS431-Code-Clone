@@ -1,6 +1,5 @@
 package test;
 
-import com.harukizaemon.simian.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;

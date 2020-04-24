@@ -10,7 +10,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../jccd-1.0.6/lib/jccd-1.0.6.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../jccd-1.0.6/lib/jccd-1.0.6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,7 +19,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../jccd-1.0.6/lib/log4j-1.2.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../jccd-1.0.6/lib/log4j-1.2.8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,16 +28,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../jccd-1.0.6/lib/antlr-3.0.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../simian-2.5.10.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../jccd-1.0.6/lib/antlr-3.0.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

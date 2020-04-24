@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed4f6a6d-b056-4ac1-92b3-7f614f4d6994" name="Default Changelist" comment="" />
+    <list default="true" id="ed4f6a6d-b056-4ac1-92b3-7f614f4d6994" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/Input_Type_1_2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/Reference_Type_1_2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/Input_Type_1_2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/Reference_Type_1_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCloneAlgorithm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCloneAlgorithm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/META-INF/CodeCloneAlgorithm.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestingJCCD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestingJCCD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestingSimian.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestingSimian.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestingJCCD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestingJCCD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestingSimian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestingSimian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/simian-2.5.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/test2/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/test2/Test2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/test3/test3.txt" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,18 +33,23 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1auC5i0gMShGPmzvUReVMPNnKdl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -95,10 +118,22 @@
       <updated>1587575910809</updated>
       <workItem from="1587575915289" duration="1949000" />
       <workItem from="1587691086052" duration="12545000" />
+      <workItem from="1587709925728" duration="853000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
