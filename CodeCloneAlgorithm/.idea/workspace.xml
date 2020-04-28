@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4f6a6d-b056-4ac1-92b3-7f614f4d6994" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/Input_Type_1_2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/Reference_Type_1_2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/Input_Type_1_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/Reference_Type_1_2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/CloneData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCloneAlgorithm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCloneAlgorithm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/META-INF/CodeCloneAlgorithm.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestType1Code1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestType1Code1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestType1Code2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestType1Code2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestingJCCD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestingJCCD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestingSimian.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CodeCloneAlgorithm/test/TestingSimian.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestType1Code1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestType1Code1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestType1Code2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestType1Code2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/TestingJCCD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestingJCCD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TestingSimian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestingSimian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/simian-2.5.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/test2/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/test2/Test2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/test/test3/test3.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +109,8 @@
       <updated>1587575910809</updated>
       <workItem from="1587575915289" duration="1949000" />
       <workItem from="1587691086052" duration="12545000" />
-      <workItem from="1587709925728" duration="853000" />
+      <workItem from="1587709925728" duration="1370000" />
+      <workItem from="1587956858310" duration="10069000" />
     </task>
     <servers />
   </component>
@@ -130,7 +122,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
