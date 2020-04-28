@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UploadInputsComponent } from './upload-inputs.component';
 
 describe('UploadInputsComponent', () => {
@@ -8,6 +8,7 @@ describe('UploadInputsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports:[ MatSnackBarModule ],
       declarations: [ UploadInputsComponent ]
     })
     .compileComponents();
