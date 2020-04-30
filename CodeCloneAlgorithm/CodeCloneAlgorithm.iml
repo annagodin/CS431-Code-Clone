@@ -10,7 +10,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../jccd-1.0.6/lib/jccd-1.0.6.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../jccd-1.0.6/lib/antlr-3.0.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +28,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../jccd-1.0.6/lib/antlr-3.0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../jccd-1.0.6/lib/jccd-1.0.6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

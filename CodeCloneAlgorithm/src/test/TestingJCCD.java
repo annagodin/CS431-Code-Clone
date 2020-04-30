@@ -255,9 +255,6 @@ public class TestingJCCD {
                 }
 
                 System.out.println(cloneData);
-                if(cloneType==2 && !existsInType1(cloneResults, cloneData)){
-                    //TODO
-                }
                 cloneResults.add(cloneData);
                 System.out.println();
             }
@@ -270,14 +267,5 @@ public class TestingJCCD {
         return cloneResults;
     }
 
-
-    public static boolean existsInType1(ArrayList<CloneData> cloneResults, CloneData c){
-        for(CloneData cloneData: cloneResults){
-            if(cloneData.cloneType==1){
-                //TODO
-            }
-        }
-        return false;
-    }
 
 }
