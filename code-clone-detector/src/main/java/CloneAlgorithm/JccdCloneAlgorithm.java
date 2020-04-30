@@ -1,7 +1,7 @@
 
-package test;
+package CloneAlgorithm;
 
-import javafx.util.Pair;
+import com.clonedetector.codeclonedetector.model.CloneData;
 import org.eposoft.jccd.comparators.ast.java.*;
 import org.eposoft.jccd.data.*;
 import org.eposoft.jccd.data.ast.ANode;
@@ -10,21 +10,14 @@ import org.eposoft.jccd.detectors.APipeline;
 import org.eposoft.jccd.detectors.ASTDetector;
 import org.eposoft.jccd.preprocessors.java.*;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class CloneData {
-    int cloneType;
-    int[] referenceLocation;
-    int[] inputLocation;
-
-    public String toString() {
-        return "cloneType: " + cloneType + "\t Input Location: " + Arrays.toString(inputLocation) + "\tReference Location: " + Arrays.toString(referenceLocation);
-    }
-}
-
-public class TestingJCCD {
+public class JccdCloneAlgorithm {
     public static void main(String[] args) {
 
 
