@@ -4,7 +4,7 @@ import {CodeInput} from "../../../shared/models/file-inputs/CodeInput";
 import {Snippet} from "../../../shared/models/file-inputs/Snippet";
 import {CloneResults} from "../../../shared/models/CloneResults";
 import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'ngx-file-drop';
-import {Project} from "../../../shared/models/file-inputs/Project";
+import { Project } from "../../../shared/models/file-inputs/Project";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface FileData {
@@ -59,10 +59,6 @@ export class UploadInputsComponent implements OnInit {
   }
 
   goToResults() {
-
-
-
-
     if(this.refInputType==InputType.PROJECT){
       for (let i = 0; i < this.fileStrings.length; i++) {
         if(this.fileStrings[i].fileName.slice(this.fileStrings[i].fileName.length - 5).localeCompare(".java") != 0){
@@ -83,16 +79,12 @@ export class UploadInputsComponent implements OnInit {
         });
         return;
       }
-
       this.codeReference = new Project(this.fileStrings);
     }
 
     this.cloneResults = new CloneResults(this.codeInput, this.codeReference);
 
-
     this.cloneResultsEmitter.emit(this.cloneResults);
-
-
   }
 
   deleteAllFiles() {
@@ -147,8 +139,6 @@ export class UploadInputsComponent implements OnInit {
     };
 
     fileReader.readAsText(file);
-
-
   }
 
 
