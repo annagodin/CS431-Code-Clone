@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01e91039-c3fd-44ed-b339-cc48357ab59f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/CodeCloneDetectorApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/controller/CloneAlgorithmController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/model/CloneData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/repository/CloneDataRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/test/java/com/clonedetector/codeclonedetector/CodeCloneDetectorApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/CloneAlgorithm/JccdCloneAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCloneAlgorithm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCloneAlgorithm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TestingJCCD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestingJCCD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/controller/CloneAlgorithmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/controller/CloneAlgorithmController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588224423531</updated>
-      <workItem from="1588224426826" duration="669000" />
+      <workItem from="1588224426826" duration="932000" />
     </task>
     <servers />
   </component>
