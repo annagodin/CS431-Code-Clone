@@ -28,7 +28,7 @@ export class CodeAnalysisComponent implements OnInit {
 
   constructor() {
     this.codeInput = new class implements CodeInput {
-      contents: String;
+      contents: string;
     };
     this.codeReference = new class implements CodeReference {
       contents: any;

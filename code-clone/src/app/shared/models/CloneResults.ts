@@ -9,17 +9,17 @@ export class CloneResults {
   inputCode: CodeInput;
 
 
-  constructor(inputCode?: CodeInput, referenceCode?: CodeReference) {
+  constructor(inputCode?: CodeInput, referenceCode?: CodeReference, results?: CloneData[]) {
     this.inputCode = inputCode;
     this.referenceCode = referenceCode;
     this.results = [];
 
 
     //for testing
-    let randNumClones = Math.floor(Math.random() * Math.floor(8));
-    for (let i = 0; i < randNumClones; i++) {
-      this.addRandomResult();
-    }
+    // let randNumClones = Math.floor(Math.random() * Math.floor(8));
+    // for (let i = 0; i < randNumClones; i++) {
+    //   this.addRandomResult();
+    // }
 
   }
 

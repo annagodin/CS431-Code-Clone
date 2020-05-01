@@ -12,8 +12,8 @@ import javax.persistence.Table;
 @Table(name = "clones")
 public class CloneData {
 
-    @Id
-    private long id;
+//    @Id
+//    private long id;
     public int cloneType;
     public int[] referenceLocation;
     public int[] inputLocation;

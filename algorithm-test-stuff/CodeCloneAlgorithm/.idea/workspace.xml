@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="01e91039-c3fd-44ed-b339-cc48357ab59f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/CloneAlgorithm/TestFiles/TestType1Code1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/CloneAlgorithm/TestFiles/TestType1Code2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/CloneAlgorithm/TestFiles/TestType2Code1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/CloneAlgorithm/TestFiles/TestType2Code2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/CloneAlgorithm/TestFiles/TestType3Code1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/CloneAlgorithm/TestFiles/TestType3Code2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/model/InputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/controller/CloneAlgorithmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/controller/CloneAlgorithmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/model/CloneData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/model/CloneData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/repository/CloneDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone-detector/src/main/java/com/clonedetector/codeclonedetector/repository/CloneDataRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/clone-results/clone-results.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/clone-results/clone-results.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/clone-results/clone-results.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/clone-results/clone-results.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/code-analysis.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/code-analysis.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/input-feedback-data/input-feedback-data.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/input-feedback-data/input-feedback-data.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/upload-inputs/upload-inputs.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone/src/app/components/code-analysis/upload-inputs/upload-inputs.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/models/CloneResults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone/src/app/shared/models/CloneResults.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/models/file-inputs/CodeInput.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone/src/app/shared/models/file-inputs/CodeInput.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/code-analysis.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../code-clone/src/app/shared/services/code-analysis/code-analysis.service.ts" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1bFOYbv8d1JVVFQF2jqPQe8rCOn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01e91039-c3fd-44ed-b339-cc48357ab59f" name="Default Changelist" comment="" />
+      <created>1588224423531</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588224423531</updated>
+      <workItem from="1588224426826" duration="1250000" />
+      <workItem from="1588310819315" duration="398000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

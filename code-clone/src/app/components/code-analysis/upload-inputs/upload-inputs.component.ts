@@ -5,7 +5,11 @@ import {Snippet} from "../../../shared/models/file-inputs/Snippet";
 import {CloneResults} from "../../../shared/models/CloneResults";
 import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'ngx-file-drop';
 import {Project} from "../../../shared/models/file-inputs/Project";
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {CodeAnalysisService} from "../../../shared/services/code-analysis/code-analysis.service";
+import {CloneData} from "../../../shared/models/CloneData";
+import {Observable} from "rxjs";
+import {CloneFeedback} from "../../../shared/models/CloneFeedback";
 
 export interface FileData {
   fileName: string;
@@ -44,9 +48,9 @@ export class UploadInputsComponent implements OnInit {
 
   files: NgxFileDropEntry[] = [];
   fileStrings: FileData[] = [];
-  filesUploaded=false;
+  filesUploaded = false;
 
-  constructor(private snackBar: MatSnackBar) {
+  constructor(private snackBar: MatSnackBar, private codeAnalysisService: CodeAnalysisService) {
     this.codeInput = new Snippet(null, this.placeholderCode);
     this.codeReference = new Snippet(null, this.placeholderCode);
   }
@@ -61,25 +65,22 @@ export class UploadInputsComponent implements OnInit {
   goToResults() {
 
 
-
-
-    if(this.refInputType==InputType.PROJECT){
+    if (this.refInputType == InputType.PROJECT) {
       for (let i = 0; i < this.fileStrings.length; i++) {
-        if(this.fileStrings[i].fileName.slice(this.fileStrings[i].fileName.length - 5).localeCompare(".java") != 0){
+        if (this.fileStrings[i].fileName.slice(this.fileStrings[i].fileName.length - 5).localeCompare(".java") != 0) {
           this.fileStrings.splice(i, 1);
           i--;
-        }
-        else if(this.fileStrings[i].fileContents.trim().length === 0){
+        } else if (this.fileStrings[i].fileContents.trim().length === 0) {
           this.fileStrings.splice(i, 1);
           i--;
         }
       }
 
-      if(this.fileStrings.length <= 0){
+      if (this.fileStrings.length <= 0) {
         // no valid inputs
 
         this.snackBar.open('No valid input files found... Try again', '', {
-          duration:3000,
+          duration: 3000,
         });
         return;
       }
@@ -87,12 +88,21 @@ export class UploadInputsComponent implements OnInit {
       this.codeReference = new Project(this.fileStrings);
     }
 
-    this.cloneResults = new CloneResults(this.codeInput, this.codeReference);
+    let resultsList: CloneData[];
 
+    //ALGO SERVICE GOES HERE
+    this.codeAnalysisService.getClones2(this.codeInput.contents,this.codeReference.contents)
+      .subscribe(data => {
+      resultsList=data;
+      console.log("RESULTS LIST");
+      console.log(resultsList);
+      this.cloneResults = new CloneResults(this.codeInput, this.codeReference);
+      this.cloneResults.results=resultsList;
 
-    this.cloneResultsEmitter.emit(this.cloneResults);
+      this.cloneResults.results.forEach(result=>result.feedback= new CloneFeedback(undefined, result.cloneType, null));
+      this.cloneResultsEmitter.emit(this.cloneResults);
 
-
+      }, error => console.log(error));
   }
 
   deleteAllFiles() {
@@ -127,7 +137,7 @@ export class UploadInputsComponent implements OnInit {
         console.log(droppedFile.relativePath, fileEntry);
       }
     }
-    this.filesUploaded=true;
+    this.filesUploaded = true;
   }
 
   uploadDocument(fileName: string, file) {

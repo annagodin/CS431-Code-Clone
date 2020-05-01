@@ -20,8 +20,8 @@ export class CloneResultsComponent implements OnInit {
   @Output() cloneResultsEmitter = new EventEmitter<CloneResults>();
   @Output() feedbackDataEmitter = new EventEmitter<CloneFeedback[]>();
 
-  displayedColumns: string[] = ['cloneType', 'inputLocation', 'referenceLocation', 'methodName'];
-  projectDisplayedColumns: string[] = ['cloneType', 'inputLocation', 'referenceFileName', 'referenceLocation', 'methodName'];
+  displayedColumns: string[] = ['cloneType', 'inputLocation', 'referenceLocation'];
+  projectDisplayedColumns: string[] = ['cloneType', 'inputLocation', 'referenceFileName', 'referenceLocation'];
 
 
   selected = new FormControl(0);
