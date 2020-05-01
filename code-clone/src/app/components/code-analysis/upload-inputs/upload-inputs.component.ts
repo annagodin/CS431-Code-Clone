@@ -11,6 +11,7 @@ import {CloneData} from "../../../shared/models/CloneData";
 import {Observable} from "rxjs";
 import {CloneFeedback} from "../../../shared/models/CloneFeedback";
 
+
 export interface FileData {
   fileName: string;
   fileContents: string;
@@ -66,6 +67,7 @@ export class UploadInputsComponent implements OnInit {
 
 
     if (this.refInputType == InputType.PROJECT) {
+
       for (let i = 0; i < this.fileStrings.length; i++) {
         if (this.fileStrings[i].fileName.slice(this.fileStrings[i].fileName.length - 5).localeCompare(".java") != 0) {
           this.fileStrings.splice(i, 1);
@@ -84,7 +86,6 @@ export class UploadInputsComponent implements OnInit {
         });
         return;
       }
-
       this.codeReference = new Project(this.fileStrings);
     }
 
@@ -103,6 +104,7 @@ export class UploadInputsComponent implements OnInit {
       this.cloneResultsEmitter.emit(this.cloneResults);
 
       }, error => console.log(error));
+
   }
 
   deleteAllFiles() {
@@ -157,8 +159,6 @@ export class UploadInputsComponent implements OnInit {
     };
 
     fileReader.readAsText(file);
-
-
   }
 
 
