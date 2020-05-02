@@ -73,3 +73,11 @@ td.hljs-ln-code {
   font-size: large;
 }
 
+
+
+
+.mat-spinner circle {
+  stroke: var(--primary) !important;
+}
+
+

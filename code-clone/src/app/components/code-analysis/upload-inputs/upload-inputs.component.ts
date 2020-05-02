@@ -103,10 +103,18 @@ export class UploadInputsComponent implements OnInit {
           this.cloneResults = new CloneResults(this.codeInput, this.codeReference);
           this.cloneResults.results = resultsList;
 
+          this.submitPressed=false;
+
           this.cloneResults.results.forEach(result => result.feedback = new CloneFeedback(undefined, result.cloneType, null));
           this.cloneResultsEmitter.emit(this.cloneResults);
 
-        }, error => console.log(error));
+        }, error => {
+          console.log(error);
+          this.snackBar.open('Error: Connection to server refused', '', {
+            duration: 3000
+          });
+          this.submitPressed=false;
+        });
 
     } else if (this.refInputType == InputType.PROJECT) {
 
@@ -120,10 +128,19 @@ export class UploadInputsComponent implements OnInit {
 
         let resultsFiles = this.getResultFiles();
 
+        this.submitPressed=false;
+
         this.resultsFilesEmitter.emit(resultsFiles);
         this.cloneResultsEmitter.emit(this.cloneResults);
 
-      }, error => console.log(error));
+      }, error => {
+        console.log(error);
+        this.snackBar.open('Error: Connection to server refused', '', {
+          duration: 3000
+        });
+        this.submitPressed=false;
+
+      });
 
     }
 
