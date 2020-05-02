@@ -38,15 +38,15 @@
               <button type="button" class="btn btn-sm btn-primary" (click)="openFileSelector()">Browse Files</button>
             </ng-template>
           </ngx-file-drop>
-          
+
 
           <div class="divider"></div>
           <div *ngIf="filesUploaded">
-            <strong *ngIf="fileStrings.length>0"> 
+            <strong *ngIf="fileStrings.length>0">
               <button type="button" class="close" aria-label="Close" (click)="deleteAllFiles()" matTooltip="Delete all uploaded files" [matTooltipPosition]="position">
-                <span aria-hidden="true">&times;</span>        
+                <span aria-hidden="true">&times;</span>
               </button>Uploaded Files:</strong>
-            
+
             <div class="divider"></div>
             <div class="upload-table table-responsive mat-elevation-z1" *ngIf="fileStrings.length>0">
               <table class="table table-fixed">
@@ -119,6 +119,18 @@
 <div style="text-align: center">
   <button type="submit" class="btn btn-dark" (click)="goToResults()">Get Results</button>
 </div>
+
+<div *ngIf="submitPressed">
+<!--  <mat-spinner *ngIf="submitPressed"></mat-spinner>-->
+<!--  <mat-spinner style="margin:0 auto;" [diameter]="70"></mat-spinner>-->
+  <div class="overlay">
+    <div class="center2">
+      <mat-spinner [diameter]=80> </mat-spinner>
+    </div>
+  </div>
+</div>
+
+
 
 &nbsp;
 <!--<button class="btn btn-light" (click)="printFileList()">Print Files</button>-->

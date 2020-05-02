@@ -17,12 +17,13 @@ public class CloneData {
     public int cloneType;
     public int[] referenceLocation;
     public int[] inputLocation;
+    public String referenceFileName;
 
     public CloneData(){
 
     }
 
     public String toString() {
-        return "cloneType: " + cloneType + "\t Input Location: " + Arrays.toString(inputLocation) + "\tReference Location: " + Arrays.toString(referenceLocation);
+        return "cloneType: " + cloneType + "\trefFileName: " + referenceFileName + "\t Input Location: " + Arrays.toString(inputLocation) + "\tReference Location: " + Arrays.toString(referenceLocation);
     }
 }

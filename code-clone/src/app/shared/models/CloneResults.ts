@@ -70,9 +70,9 @@ export class CloneResults {
 
 
     if (this.referenceCode.type == InputType.PROJECT) {
-      c = new CloneData(randCloneType, referenceLocation, inputLocation, "main", randomFileName);
+      c = new CloneData(randCloneType, referenceLocation, inputLocation, randomFileName);
     } else { //SNIPPET
-      c = new CloneData(randCloneType, referenceLocation, inputLocation, "main");
+      c = new CloneData(randCloneType, referenceLocation, inputLocation);
     }
 
     c.feedback = new CloneFeedback(undefined, randCloneType, null);

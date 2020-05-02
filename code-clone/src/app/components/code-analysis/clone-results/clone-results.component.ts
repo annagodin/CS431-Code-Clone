@@ -6,6 +6,8 @@ import {DiffEditorModel, NgxEditorModel} from "ngx-monaco-editor";
 import {MonacoEditorModule} from "ngx-monaco-editor";
 import {CloneFeedback} from "../../../shared/models/CloneFeedback";
 import {FormControl} from "@angular/forms";
+import {CloneData} from "../../../shared/models/CloneData";
+import {Snippet} from "../../../shared/models/file-inputs/Snippet";
 // https://github.com/MurhafSousli/ngx-highlightjs/blob/master/README_v2.md
 
 // https://stackoverflow.com/questions/59275532/monaco-deltadecorations-disappear-in-angular-7-when-model-changes
@@ -17,6 +19,7 @@ import {FormControl} from "@angular/forms";
 })
 export class CloneResultsComponent implements OnInit {
   @Input() cloneResults: CloneResults;
+  @Input() resultsFiles: Array<Snippet>;
   @Output() cloneResultsEmitter = new EventEmitter<CloneResults>();
   @Output() feedbackDataEmitter = new EventEmitter<CloneFeedback[]>();
 
@@ -36,13 +39,13 @@ export class CloneResultsComponent implements OnInit {
   position: any = "after";
 
 
-  goToFile(fileName){
+  goToFile(fileName) {
     let index = 0;
-    for(let i=0; i<this.cloneResults.referenceCode.contents.length; i++){
+    for (let i = 0; i < this.cloneResults.referenceCode.contents.length; i++) {
       let file = this.cloneResults.referenceCode.contents[i].fileName;
-      if(file==fileName){
+      if (file == fileName) {
         console.log(file + " = " + fileName);
-        index=i;
+        index = i;
         break;
       }
     }
@@ -76,7 +79,7 @@ export class CloneResultsComponent implements OnInit {
     for (let i = 0; i < cloneFeedback.length; i++) {
       let cloneFeedbackData = new CloneFeedback();
       cloneFeedbackData.cloneType = this.cloneResults.results[i].cloneType;
-      this.cloneResults.results[i].feedback=cloneFeedbackData;
+      this.cloneResults.results[i].feedback = cloneFeedbackData;
       cloneFeedback[i] = cloneFeedbackData;
     }
 
@@ -89,5 +92,21 @@ export class CloneResultsComponent implements OnInit {
   get inputType() {
     return InputType;
   }
+
+  getResultFiles() : Array<Snippet> {
+    let fileNames = [];
+    for (let cloneResult of this.cloneResults.results) {
+      fileNames.push(cloneResult.referenceFileName)
+    }
+
+    let snippets = [];
+    for (let snippet of this.cloneResults.referenceCode.contents) {
+      if (fileNames.indexOf(snippet.fileName) != -1) {
+        snippets.push(snippet)
+      }
+    }
+    return snippets;
+  }
+
 
 }

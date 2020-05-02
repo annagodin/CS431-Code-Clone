@@ -8,7 +8,6 @@ import {Project} from "../../../shared/models/file-inputs/Project";
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {CodeAnalysisService} from "../../../shared/services/code-analysis/code-analysis.service";
 import {CloneData} from "../../../shared/models/CloneData";
-import {Observable} from "rxjs";
 import {CloneFeedback} from "../../../shared/models/CloneFeedback";
 
 
@@ -29,11 +28,14 @@ export class UploadInputsComponent implements OnInit {
 
   displayedColumns: string[] = ['fileName'];
 
+  submitPressed = false;
   codeInput: CodeInput;
   codeReference: CodeReference;
   cloneResults: CloneResults;
 
   @Output() cloneResultsEmitter = new EventEmitter<CloneResults>();
+  @Output() resultsFilesEmitter = new EventEmitter<Array<Snippet>>();
+
   @Input() refInputType: InputType;
 
 
@@ -51,6 +53,7 @@ export class UploadInputsComponent implements OnInit {
   fileStrings: FileData[] = [];
   filesUploaded = false;
 
+
   constructor(private snackBar: MatSnackBar, private codeAnalysisService: CodeAnalysisService) {
     this.codeInput = new Snippet(null, this.placeholderCode);
     this.codeReference = new Snippet(null, this.placeholderCode);
@@ -67,7 +70,6 @@ export class UploadInputsComponent implements OnInit {
 
 
     if (this.refInputType == InputType.PROJECT) {
-
       for (let i = 0; i < this.fileStrings.length; i++) {
         if (this.fileStrings[i].fileName.slice(this.fileStrings[i].fileName.length - 5).localeCompare(".java") != 0) {
           this.fileStrings.splice(i, 1);
@@ -77,10 +79,8 @@ export class UploadInputsComponent implements OnInit {
           i--;
         }
       }
-
       if (this.fileStrings.length <= 0) {
         // no valid inputs
-
         this.snackBar.open('No valid input files found... Try again', '', {
           duration: 3000,
         });
@@ -89,22 +89,60 @@ export class UploadInputsComponent implements OnInit {
       this.codeReference = new Project(this.fileStrings);
     }
 
+
     let resultsList: CloneData[];
+    this.submitPressed = true;
+    if (this.refInputType == InputType.SNIPPET) {
 
-    //ALGO SERVICE GOES HERE
-    this.codeAnalysisService.getClones2(this.codeInput.contents,this.codeReference.contents)
-      .subscribe(data => {
-      resultsList=data;
-      console.log("RESULTS LIST");
-      console.log(resultsList);
-      this.cloneResults = new CloneResults(this.codeInput, this.codeReference);
-      this.cloneResults.results=resultsList;
+      //ALGO SERVICE GOES HERE
+      this.codeAnalysisService.getClonesSnippet(this.codeInput.contents, this.codeReference.contents)
+        .subscribe(data => {
+          resultsList = data;
+          console.log("SNIPPET RESULTS LIST");
+          console.log(resultsList);
+          this.cloneResults = new CloneResults(this.codeInput, this.codeReference);
+          this.cloneResults.results = resultsList;
 
-      this.cloneResults.results.forEach(result=>result.feedback= new CloneFeedback(undefined, result.cloneType, null));
-      this.cloneResultsEmitter.emit(this.cloneResults);
+          this.cloneResults.results.forEach(result => result.feedback = new CloneFeedback(undefined, result.cloneType, null));
+          this.cloneResultsEmitter.emit(this.cloneResults);
+
+        }, error => console.log(error));
+
+    } else if (this.refInputType == InputType.PROJECT) {
+
+      this.codeAnalysisService.getClonesProject(this.codeInput.contents, this.codeReference.contents).subscribe(data => {
+        resultsList = data;
+        console.log("PROJECT RESULTS LIST");
+        console.log(resultsList);
+        this.cloneResults = new CloneResults(this.codeInput, this.codeReference);
+        this.cloneResults.results = resultsList;
+        this.cloneResults.results.forEach(result => result.feedback = new CloneFeedback(undefined, result.cloneType, null));
+
+        let resultsFiles = this.getResultFiles();
+
+        this.resultsFilesEmitter.emit(resultsFiles);
+        this.cloneResultsEmitter.emit(this.cloneResults);
 
       }, error => console.log(error));
 
+    }
+
+
+  }
+
+  getResultFiles() : Array<Snippet> {
+    let fileNames = [];
+    for (let cloneResult of this.cloneResults.results) {
+      fileNames.push(cloneResult.referenceFileName)
+    }
+
+    let snippets = [];
+    for (let snippet of this.cloneResults.referenceCode.contents) {
+      if (fileNames.indexOf(snippet.fileName) != -1) {
+        snippets.push(snippet)
+      }
+    }
+    return snippets;
   }
 
   deleteAllFiles() {
@@ -154,7 +192,7 @@ export class UploadInputsComponent implements OnInit {
       let fileStuff = {fileName: fileName.toString(), fileContents: fileString.toString()};
       // let fileStuff: [string, string] = [fileName.toString(), fileString.toString()];
       this.fileStrings.push(fileStuff);
-      console.log("printing file stuffs:\n" + fileStuff.fileName + "\n" + fileStuff.fileContents);
+      // console.log("printing file stuffs:\n" + fileStuff.fileName + "\n" + fileStuff.fileContents);
 
     };
 

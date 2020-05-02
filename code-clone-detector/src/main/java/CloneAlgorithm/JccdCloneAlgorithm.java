@@ -85,6 +85,10 @@ public class JccdCloneAlgorithm {
     }
 
     public static ArrayList<CloneData> detectClones(String inputFileString, String referenceFileString) {
+
+//        System.out.println("inputFileString: \n" + inputFileString);
+//        System.out.println("referenceFileString: \n" +referenceFileString);
+
         ArrayList<CloneData> cloneResults = new ArrayList<CloneData>();
 
         File inputFile;
@@ -245,6 +249,10 @@ public class JccdCloneAlgorithm {
 
                     System.out.print("Start: " + startLine + "\t");
                     System.out.println("End: " + endLine);
+                }
+
+                if(cloneData.inputLocation==null||cloneData.referenceLocation==null){
+                    continue;
                 }
 
                 System.out.println(cloneData);

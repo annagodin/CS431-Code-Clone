@@ -98,7 +98,8 @@
           <div style='min-height:500px'>
             <mat-tab-group [selectedIndex]="selected.value"
                            (selectedIndexChange)="selected.setValue($event)">
-              <mat-tab *ngFor="let snippet of cloneResults.referenceCode.contents" label="{{snippet.fileName}}">
+<!--              <mat-tab *ngFor="let snippet of cloneResults.referenceCode.contents" label="{{snippet.fileName}}">-->
+                <mat-tab *ngFor="let snippet of resultsFiles" label="{{snippet.fileName}}">
                 <div class="divider"></div>
                 <pre><code class="code" [highlight]="snippet.contents" [lineNumbers]="true"></code></pre>
               </mat-tab>

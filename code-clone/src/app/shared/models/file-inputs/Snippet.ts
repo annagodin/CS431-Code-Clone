@@ -4,7 +4,6 @@ import {InputType} from "./CodeReference";
 
 export class Snippet implements CodeReference, CodeInput{
   contents: string;
-  ASTStructure: any;
   type: InputType;
   fileName: string;
 
@@ -13,17 +12,6 @@ export class Snippet implements CodeReference, CodeInput{
     this.fileName=fileName;
     this.contents=fileContents;
   }
-
-
-  /**
-   * Generates AST representation of the Java file contents
-   * TODO - figure out how to do this.. maybe use a service?
-   * @param contents
-   */
-  loadAST(contents): any{
-    //TODO
-  }
-
 
 
 

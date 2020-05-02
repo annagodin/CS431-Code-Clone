@@ -2,12 +2,15 @@ package com.clonedetector.codeclonedetector.controller;
 
 import com.clonedetector.codeclonedetector.model.CloneData;
 import com.clonedetector.codeclonedetector.model.InputData;
+import com.clonedetector.codeclonedetector.model.ProjectInputData;
+import com.clonedetector.codeclonedetector.model.Snippet;
 import com.clonedetector.codeclonedetector.repository.CloneDataRepository;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static CloneAlgorithm.JccdCloneAlgorithm.detectClones;
@@ -42,16 +45,30 @@ public class CloneAlgorithmController {
         return null;
     }
 
-    //    @PostMapping("/clones")
-    @PostMapping(
-            value = "/clones", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/clones", consumes = "application/json", produces = "application/json")
     public List<CloneData> getInputs(@Valid @RequestBody InputData inputData) {
         System.out.println(inputData);
-//        return "inputs are " + inputData;
-
         List<CloneData> cloneResults = detectClones(inputData.inputFile, inputData.referenceFile);
         return cloneResults;
-
     }
+
+
+    @PostMapping(value = "/clones/project", consumes = "application/json", produces = "application/json")
+    public List<CloneData> getInputsProject(@Valid @RequestBody ProjectInputData projectInputData) {
+//        System.out.println(projectInputData);
+        List<CloneData> totalResults = new ArrayList<>();
+        for(Snippet snippet : projectInputData.referenceProject){ //snippet refers to each reference file
+            System.out.println("****** PROCESSING " + snippet.fileName);
+            List<CloneData> results = detectClones(projectInputData.inputFileString, snippet.contents);
+            results.forEach(result->result.referenceFileName = snippet.fileName);
+            totalResults.addAll(results);
+//            break;
+        }
+        System.out.println(totalResults);
+
+        return totalResults;
+    }
+
+
 
 }

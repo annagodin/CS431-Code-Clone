@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CloneData} from "../../models/CloneData";
+import {Snippet} from "../../models/file-inputs/Snippet";
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class CodeAnalysisService {
     // return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  getClones2(inputFileString: string, referenceFileString: string): Observable<CloneData[]> {
+  getClonesSnippet(inputFileString: string, referenceFileString: string): Observable<CloneData[]> {
     const body = {
       "inputFile": inputFileString,
       "referenceFile": referenceFileString
@@ -36,9 +37,18 @@ export class CodeAnalysisService {
   }
 
 
-  // createEmployee(employee: Object): Observable<Object> {
-  //   return this.http.post(`${this.baseUrl}`, employee);
-  // }
+  getClonesProject(inputFileString: string, referenceProject: Snippet[]):Observable<CloneData[]> {
+    const body = {
+      "inputFileString": inputFileString,
+      "referenceProject": referenceProject
+
+    };
+    let url = this.baseUrl + "/project";
+    // console.log(JSON.stringify(body, null, 2));
+    return this.http.post<CloneData[]>(url, body, this.httpOptions);
+  }
+
+
 
 }
 

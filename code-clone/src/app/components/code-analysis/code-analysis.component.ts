@@ -5,6 +5,7 @@ import {CodeInput} from "../../shared/models/file-inputs/CodeInput";
 import {CloneResults} from "../../shared/models/CloneResults";
 import {CloneFeedback} from "../../shared/models/CloneFeedback";
 import {CloneData} from "../../shared/models/CloneData";
+import {Snippet} from "../../shared/models/file-inputs/Snippet";
 
 @Component({
   selector: 'app-code-analysis',
@@ -22,7 +23,7 @@ export class CodeAnalysisComponent implements OnInit {
   cloneResults: CloneResults;
   codeInput: CodeInput;
   codeReference: CodeReference;
-
+  resultsFiles: Array<Snippet>;
 
   feedbackData: CloneFeedback[];
 
@@ -110,4 +111,7 @@ export class CodeAnalysisComponent implements OnInit {
   // getFeedbackData($event) {
   //   this.feedbackData = $event;
   // }
+  getResultsFiles($event) {
+    this.resultsFiles=$event;
+  }
 }
