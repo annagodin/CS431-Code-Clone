@@ -43,7 +43,7 @@
           <div class="divider"></div>
           <div *ngIf="filesUploaded">
             <strong *ngIf="fileStrings.length>0">
-              <button type="button" class="close" aria-label="Close" (click)="deleteAllFiles()" matTooltip="Delete all uploaded files" [matTooltipPosition]="position">
+              <button id="deleteButton" type="button" class="close" aria-label="Close" (click)="deleteAllFiles()" matTooltip="Delete all uploaded files" [matTooltipPosition]="position">
                 <span aria-hidden="true">&times;</span>
               </button>Uploaded Files:</strong>
 

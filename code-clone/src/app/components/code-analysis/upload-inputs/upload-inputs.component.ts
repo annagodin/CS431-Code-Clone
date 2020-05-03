@@ -143,8 +143,6 @@ export class UploadInputsComponent implements OnInit {
       });
 
     }
-
-
   }
 
   getResultFiles() : Array<Snippet> {
@@ -233,5 +231,34 @@ export class UploadInputsComponent implements OnInit {
     console.log(event);
   }
 
-
+  //--------------For Testing Only
+  mockFile: File;
+  mockDropFile($event: any){
+    this.mockFile = null;
+    for(const droppedFile of $event){
+      if(droppedFile.fileEntry.isFile){
+        const fileEntry = fakeFileEntry;
+        fileEntry.file((file:File) => {
+          this.mockFile = file;
+        })
+      }
+    }
+  }
 }
+
+const fakeFileEntry: FileSystemFileEntry = {
+  name: 'test',
+  isDirectory: false,
+  isFile: true,
+  file: (callback: (filea: File) => void): void => {
+    callback(createFile() as File)
+  }
+}
+function createFile(name: string = 'test.java', type: string = 'application/CS431'): File {
+  var blob = new Blob([''], {type: type})
+  blob['lastModifiedDate'] = null
+  blob['name'] = name
+  return <File>blob
+}
+
+

@@ -51,6 +51,14 @@ describe('SelectInputModeComponent', () => {
     expect(component.referenceCodeType).toEqual(expected_value);
   }));
 
+  it(`should have value PROJECT`, async(() => {
+    fixture = TestBed.createComponent(SelectInputModeComponent);
+
+    const expected_value = InputType.PROJECT;
+    component.referenceCodeType=expected_value;
+    expect(component.referenceCodeType).toEqual(expected_value);
+  }));
+
   it('should have an `mat-label` tag of `Reference input type`', () => {
     expect(de.query(By.css('mat-label')).nativeElement.innerText).toBe('Reference input type');
   });

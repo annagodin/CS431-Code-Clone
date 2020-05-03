@@ -36,25 +36,41 @@ describe('CloneResultsComponent', () => {
     "}";
     var codeInput: CodeInput = new Snippet(null, placeholderCode);
     var codeReference: CodeReference = new Snippet(null, placeholderCode);
-    var codeData: CloneData[] = [new CloneData (1, [2,5], [1,4],'main', 'testing.java'), new CloneData (2, [2,5], [1,4],'main', 'testing.java')];
-    expected_value = new CloneResults(codeInput,codeReference, codeData);
+    //var codeData: CloneData[] = [new CloneData (1, [2,5], [1,4],'main', 'testing.java'), new CloneData (2, [2,5], [1,4],'main', 'testing.java')];
+    expected_value = new CloneResults(codeInput,codeReference);
 
     component.cloneResults = expected_value;
     component.cloneResults.referenceCode.type=InputType.SNIPPET;
 
     fixture.detectChanges();
   });
-/*
+
   it('should have an `button` tag of `Submit Feedback`', () => {
+    component.cloneResults.results.length = 1;
     expect(de.query(By.css('button')).nativeElement.innerText).toBe('Submit Feedback');
+  });
+/*
+    it('should have code results', ()=> {
+    fixture = TestBed.createComponent(UploadInputsComponent);
+    const placeholderCode = "//the is a placeholder for code inputs\npublic class HelloWorld {\n" +
+    "    public static void main(String[] args) {\n" +
+    "        System.out.println(\"Hello, World\");\n" +
+    "    }\n" +
+    "}";
+    const codeInput: CodeInput = new Snippet(null, placeholderCode);
+    const codeReference: CodeReference = new Snippet(null, placeholderCode);
+    const expected_value: CloneResults = new CloneResults(codeInput,codeReference);
+
+    component.cloneResults = expected_value;
+    expect(component.cloneResults).toEqual(expected_value);
   });
 */
   it('should have code results', ()=> {
     expect(component.cloneResults).toEqual(expected_value);
   });
 
-  it('should have a cloneResults.results.length greater than 0', () => {
-    expect(component.cloneResults.results.length).toBeGreaterThan(0);
+  it('should have a cloneResults.results.length be 0', () => {
+    expect(component.cloneResults.results.length).toBe(0);
   });
 
   it('should have reference code type', () => {
@@ -63,7 +79,7 @@ describe('CloneResultsComponent', () => {
 
 
   it('should click button `Submit Feedback`', async(() => {
-
+    component.cloneResults.results.length = 1;
     spyOn(component, 'goToFeedback');
     fixture.detectChanges();
     let button = fixture.debugElement.nativeElement.querySelector('button');
