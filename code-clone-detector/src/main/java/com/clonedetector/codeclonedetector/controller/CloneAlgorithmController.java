@@ -69,6 +69,11 @@ public class CloneAlgorithmController {
         return totalResults;
     }
 
+    @GetMapping("/test")
+    public String index() {
+        return "Hello there! I'm running.";
+    }
+
 
 
 }
