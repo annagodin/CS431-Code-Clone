@@ -1,10 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CloneResults} from "../../../shared/models/CloneResults";
 import {CloneFeedback} from "../../../shared/models/CloneFeedback";
 import {CloneData} from "../../../shared/models/CloneData";
 import {DatabaseService} from "../../../shared/services/database/database.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {CloneFeedbackInterface} from "../../view-feedback-data/view-feedback-data.component";
+import {CodeReference, InputType} from "../../../shared/models/file-inputs/CodeReference";
+import {Snippet} from "../../../shared/models/file-inputs/Snippet";
 
 @Component({
   selector: 'app-input-feedback-data',
@@ -13,6 +15,7 @@ import {CloneFeedbackInterface} from "../../view-feedback-data/view-feedback-dat
 })
 export class InputFeedbackDataComponent implements OnInit {
   @Input() cloneResults: CloneResults;
+
   // @Input() feedbackData: CloneFeedback[];
 
   isFeedbackUploaded = false;
@@ -55,12 +58,31 @@ export class InputFeedbackDataComponent implements OnInit {
   }
 
   nextStep() {
-    
+
     this.step++;
   }
 
   prevStep() {
     this.step--;
+  }
+
+  get inputType() {
+      return InputType;
+  }
+
+  getResultFiles() : Array<Snippet> {
+      let fileNames = [];
+      for (let cloneResult of this.cloneResults.results) {
+        fileNames.push(cloneResult.referenceFileName)
+      }
+
+      let snippets = [];
+      for (let snippet of this.cloneResults.referenceCode.contents) {
+        if (fileNames.indexOf(snippet.fileName) != -1) {
+          snippets.push(snippet)
+        }
+      }
+      return snippets;
   }
 
   uploadFeedback() {

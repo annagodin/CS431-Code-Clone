@@ -19,14 +19,42 @@
 
       <label id="example-radio-group-label">Do you agree with the output of the clone algorithm?&nbsp;<span style="color:red">*</span></label>
       <br>
-      <mat-radio-group required [(ngModel)]="cloneResults.results[i].feedback.rating" aria-label="Select an option"
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <mat-radio-group required [(ngModel)]="cloneResults.results[i].feedback.rating" aria-label="Select an option"
                        aria-labelledby="example-radio-group-label">
-        <mat-radio-button value="5">Agree</mat-radio-button> <br>
-        <mat-radio-button value="4">Slightly Agree</mat-radio-button> <br>
-        <mat-radio-button value="3">Neither Agree nor Disagree</mat-radio-button> <br>
-        <mat-radio-button value="2">Slightly Disagree</mat-radio-button> <br>
-        <mat-radio-button value="1">Disagree</mat-radio-button>
-      </mat-radio-group>
+              <mat-radio-button value="5">Agree</mat-radio-button> <br>
+              <mat-radio-button value="4">Slightly Agree</mat-radio-button> <br>
+              <mat-radio-button value="3">Neither Agree nor Disagree</mat-radio-button> <br>
+              <mat-radio-button value="2">Slightly Disagree</mat-radio-button> <br>
+              <mat-radio-button value="1">Disagree</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="col-sm">
+            <div class="row-sm">
+              <p class="lead">Input code</p>
+              <pre><code class="code" [highlight]="cloneResults.inputCode.contents" [lineNumbers]="true"></code></pre>
+            </div>
+            <div class="row-sm">
+              <p class="lead">Referenced code</p>
+
+              <div *ngIf="cloneResults.referenceCode.type==inputType.SNIPPET">
+                <pre><code class="code" [highlight]="cloneResults.referenceCode.contents" [lineNumbers]="true"></code></pre>
+              </div>
+
+              <div *ngIf="cloneResults.referenceCode.type!=inputType.SNIPPET">
+                <div *ngFor="let snippet of cloneResults.referenceCode.contents">
+                  <div *ngIf="snippet.fileName==result.referenceFileName">
+                    <pre><code class="code" [highlight]="snippet.contents" [lineNumbers]="true"></code></pre>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
       <br>
       <div class="alert alert-warning" *ngIf="!cloneResults.results[i].feedback.rating">Rating selection is required before continuing</div>
       <mat-form-field class="example-full-width">
