@@ -10,7 +10,8 @@ import {Snippet} from "../../models/file-inputs/Snippet";
 export class CodeAnalysisService {
 
 
-  private baseUrl = 'http://localhost:8080/clones';
+  // private baseUrl = 'http://localhost:8080/clones';
+  private baseUrl = 'https://code-clone-detector.herokuapp.com/clones';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
