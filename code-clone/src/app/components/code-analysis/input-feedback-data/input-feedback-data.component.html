@@ -4,9 +4,10 @@
 
 
 <div *ngIf="!isFeedbackUploaded">
-  <mat-accordion class="example-headers-align" >
+  <mat-accordion class="example-headers-align">
 
-    <mat-expansion-panel *ngFor="let result of cloneResults.results; let i = index" [expanded]="step === i" (opened)="setStep(i)" [disabled]="true" >
+    <mat-expansion-panel *ngFor="let result of cloneResults.results; let i = index" [expanded]="step === i"
+                         (opened)="setStep(i)" [disabled]="true">
       <mat-expansion-panel-header style="background: #d7d7d7">
         <mat-panel-title>
           {{"Clone type: " + result.cloneType}}
@@ -17,21 +18,37 @@
       </mat-expansion-panel-header>
       <div class="divider"></div>
 
-      <label id="example-radio-group-label">Do you agree with the output of the clone algorithm?&nbsp;<span style="color:red">*</span></label>
-      <br>
       <div class="container">
         <div class="row">
           <div class="col-sm">
-            <mat-radio-group required [(ngModel)]="cloneResults.results[i].feedback.rating" aria-label="Select an option"
-                       aria-labelledby="example-radio-group-label">
-              <mat-radio-button value="5">Agree</mat-radio-button> <br>
-              <mat-radio-button value="4">Slightly Agree</mat-radio-button> <br>
-              <mat-radio-button value="3">Neither Agree nor Disagree</mat-radio-button> <br>
-              <mat-radio-button value="2">Slightly Disagree</mat-radio-button> <br>
+            <div style="height:100px"></div>
+            <label id="example-radio-group-label">Do you agree with the output of the clone algorithm?&nbsp;<span
+              style="color:red">*</span></label>
+            <br>
+            <mat-radio-group required [(ngModel)]="cloneResults.results[i].feedback.rating"
+                             aria-label="Select an option"
+                             aria-labelledby="example-radio-group-label">
+              <mat-radio-button value="5">Agree</mat-radio-button>
+              <br>
+              <mat-radio-button value="4">Slightly Agree</mat-radio-button>
+              <br>
+              <mat-radio-button value="3">Neither Agree nor Disagree</mat-radio-button>
+              <br>
+              <mat-radio-button value="2">Slightly Disagree</mat-radio-button>
+              <br>
               <mat-radio-button value="1">Disagree</mat-radio-button>
             </mat-radio-group>
+            <div class="alert alert-warning" *ngIf="!cloneResults.results[i].feedback.rating">Rating selection is
+              required before continuing
+            </div>
+            <mat-form-field class="example-full-width">
+              <mat-label>Leave some textual feedback (optional)</mat-label>
+              <textarea [(ngModel)]="cloneResults.results[i].feedback.textFeedback" matInput
+                        placeholder="Ex. I agree/disagree with this output because..."></textarea>
+            </mat-form-field>
           </div>
           <div class="col-sm">
+            <div class="divider"></div>
             <div class="row-sm">
               <p class="lead">Input code</p>
               <pre><code class="code" [highlight]="cloneResults.inputCode.contents" [lineNumbers]="true"></code></pre>
@@ -40,7 +57,8 @@
               <p class="lead">Referenced code</p>
 
               <div *ngIf="cloneResults.referenceCode.type==inputType.SNIPPET">
-                <pre><code class="code" [highlight]="cloneResults.referenceCode.contents" [lineNumbers]="true"></code></pre>
+                <pre><code class="code" [highlight]="cloneResults.referenceCode.contents"
+                           [lineNumbers]="true"></code></pre>
               </div>
 
               <div *ngIf="cloneResults.referenceCode.type!=inputType.SNIPPET">
@@ -56,16 +74,18 @@
         </div>
       </div>
       <br>
-      <div class="alert alert-warning" *ngIf="!cloneResults.results[i].feedback.rating">Rating selection is required before continuing</div>
-      <mat-form-field class="example-full-width">
-        <mat-label>Leave some textual feedback (optional)</mat-label>
-        <textarea [(ngModel)]="cloneResults.results[i].feedback.textFeedback" matInput placeholder="Ex. I agree/disagree with this output because..."></textarea>
-      </mat-form-field>
 
-      <mat-action-row *ngIf="cloneResults.results[i].feedback.rating">
+
+      <mat-action-row>
         <button mat-button color="warn" [hidden]="step==0" (click)="prevStep()">Previous</button>
-        <button mat-button color="primary" [hidden]="step==cloneResults.results.length-1" (click)="nextStep()">Next</button>
-        <button mat-button color="primary" [hidden]="step!=cloneResults.results.length-1" (click)="uploadFeedback(); nextStep()">Submit</button>
+<!--        <div *ngIf="cloneResults.results[i].feedback.rating">-->
+          <button mat-button color="primary" [hidden]="step==cloneResults.results.length-1 || !cloneResults.results[i].feedback.rating" (click)="nextStep()">Next
+          </button>
+          <button mat-button color="primary" [hidden]="step!=cloneResults.results.length-1 || !cloneResults.results[i].feedback.rating"
+                  (click)="uploadFeedback(); nextStep()">Submit
+          </button>
+<!--        </div>-->
+
 
       </mat-action-row>
 
@@ -80,7 +100,6 @@
   <a class="btn btn-dark" href="/view-feedback-data">View Feedback</a>
   &nbsp;
   <a class="btn btn-dark" href="/view-statistics">View Statistics</a>
-
 
 
 </div>

@@ -4,7 +4,8 @@
 }
 
 .code{
-  max-width: content-box;
+  /*max-width: content-box;*/
+  max-width: available;
   /*max-width: 500px;*/
   max-height: 600px;
 
