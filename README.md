@@ -14,7 +14,7 @@ This application was built with Angular 9.0.5, Bootstrap 4, Firebase, and Spring
 
 * **Firebase** real-time database was used for data persistence, namely clone feedback data. 
 
-* **Spring Boot** was used for the Java backend implementation of the code clone algorithm. The service we used was [JCCD](http://jccd.sourceforge.net/)
+* **Spring Boot** was used for the Java backend implementation of the code clone algorithm. The service we used was [JCCD](http://jccd.sourceforge.net/). This service is able to detect type 1 and type 2 clones.
 
 ### Testing out the System
 We have provied some test files to use when trying out the system. The files can be locates in the [test-files](test-files) directory.
